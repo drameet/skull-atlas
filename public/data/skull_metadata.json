@@ -1,0 +1,2196 @@
+[
+  {
+    "id": "sphenoid_bone",
+    "name": "Sphenoid Bone",
+    "latin": "Os sphenoidale",
+    "fma": "FMA52736",
+    "category": "Neurocranium (Cranial Base)",
+    "subgroup": "Central Anchor",
+    "color": "#e8c99b",
+    "description": "Keystone bone of the cranial base. Articulates with almost every cranial bone, houses the pituitary gland in the sella turcica, and transmits optic and cranial nerves through its fissures and foramina.",
+    "articulations": [
+      "Frontal",
+      "Occipital",
+      "Parietals",
+      "Temporals",
+      "Ethmoid",
+      "Zygomatics",
+      "Palatines",
+      "Vomer"
+    ],
+    "is_anchor": true,
+    "is_tooth": false,
+    "vertex_count": 4957,
+    "face_count": 8154,
+    "centroid": [
+      0.0,
+      -0.0,
+      -0.0
+    ],
+    "bbox_min": [
+      -55.821,
+      -38.574,
+      -27.676
+    ],
+    "bbox_max": [
+      55.532,
+      30.976,
+      26.93
+    ],
+    "explode_vector": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": "frontal_bone",
+    "name": "Frontal Bone",
+    "latin": "Os frontale",
+    "fma": "FMA52734",
+    "category": "Neurocranium (Calvaria)",
+    "subgroup": "Vault",
+    "color": "#d9b897",
+    "description": "Forms the forehead, superior rims of the orbits, and anterior cranial fossa. Contains the frontal sinuses and meets the parietals at the coronal suture.",
+    "articulations": [
+      "Parietals (Coronal suture)",
+      "Sphenoid",
+      "Ethmoid",
+      "Nasal bones",
+      "Maxillae",
+      "Zygomatics",
+      "Lacrimals"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 8472,
+    "face_count": 14510,
+    "centroid": [
+      0.053,
+      55.759,
+      28.995
+    ],
+    "bbox_min": [
+      -62.803,
+      3.406,
+      -11.45
+    ],
+    "bbox_max": [
+      62.491,
+      112.456,
+      59.296
+    ],
+    "explode_vector": [
+      0.057,
+      78.946,
+      34.736
+    ]
+  },
+  {
+    "id": "occipital_bone",
+    "name": "Occipital Bone",
+    "latin": "Os occipitale",
+    "fma": "FMA52735",
+    "category": "Neurocranium (Calvaria)",
+    "subgroup": "Vault",
+    "color": "#c8b09b",
+    "description": "Forms the posterior and base of the neurocranium. Traversed by the foramen magnum transmitting the spinal cord, and presents bilateral condyles articulating with the atlas (C1).",
+    "articulations": [
+      "Parietals (Lambdoid suture)",
+      "Temporals",
+      "Sphenoid (Spheno-occipital synchondrosis)",
+      "Atlas (C1)"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 6995,
+    "face_count": 12450,
+    "centroid": [
+      -0.163,
+      -4.58,
+      -95.362
+    ],
+    "bbox_min": [
+      -61.462,
+      -39.714,
+      -136.09
+    ],
+    "bbox_max": [
+      61.205,
+      67.026,
+      -17.13
+    ],
+    "explode_vector": [
+      -0.094,
+      -1.057,
+      -82.493
+    ]
+  },
+  {
+    "id": "right_parietal_bone",
+    "name": "Right Parietal Bone",
+    "latin": "Os parietale dextrum",
+    "fma": "FMA52788",
+    "category": "Neurocranium (Calvaria)",
+    "subgroup": "Vault",
+    "color": "#e0c2a8",
+    "description": "Quadrilateral bone forming the superior-lateral vault of the cranium. Meets the contralateral parietal at the sagittal suture.",
+    "articulations": [
+      "Left Parietal (Sagittal)",
+      "Frontal (Coronal)",
+      "Occipital (Lambdoid)",
+      "Right Temporal (Squamosal)",
+      "Sphenoid"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 8028,
+    "face_count": 13002,
+    "centroid": [
+      -45.592,
+      71.503,
+      -65.722
+    ],
+    "bbox_min": [
+      -75.689,
+      0.396,
+      -132.92
+    ],
+    "bbox_max": [
+      5.502,
+      118.786,
+      9.797
+    ],
+    "explode_vector": [
+      -43.275,
+      62.648,
+      -47.985
+    ]
+  },
+  {
+    "id": "left_parietal_bone",
+    "name": "Left Parietal Bone",
+    "latin": "Os parietale sinistrum",
+    "fma": "FMA52789",
+    "category": "Neurocranium (Calvaria)",
+    "subgroup": "Vault",
+    "color": "#e0c2a8",
+    "description": "Quadrilateral bone forming the left superior-lateral vault of the cranium.",
+    "articulations": [
+      "Right Parietal (Sagittal)",
+      "Frontal (Coronal)",
+      "Occipital (Lambdoid)",
+      "Left Temporal (Squamosal)",
+      "Sphenoid"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 8367,
+    "face_count": 13210,
+    "centroid": [
+      44.546,
+      71.922,
+      -65.163
+    ],
+    "bbox_min": [
+      -7.368,
+      0.316,
+      -133.041
+    ],
+    "bbox_max": [
+      75.356,
+      118.786,
+      13.597
+    ],
+    "explode_vector": [
+      42.486,
+      63.32,
+      -47.807
+    ]
+  },
+  {
+    "id": "right_temporal_bone",
+    "name": "Right Temporal Bone",
+    "latin": "Os temporale dextrum",
+    "fma": "FMA52738",
+    "category": "Neurocranium (Cranial Base)",
+    "subgroup": "Lateral Base",
+    "color": "#c2a890",
+    "description": "Complex bone situated at the lateral base of the skull. Encloses the middle and inner ear organs, external auditory meatus, and forms the glenoid fossa for the TMJ.",
+    "articulations": [
+      "Right Parietal",
+      "Sphenoid",
+      "Occipital",
+      "Right Zygomatic",
+      "Mandible (TMJ)"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 3102,
+    "face_count": 4928,
+    "centroid": [
+      -52.046,
+      -4.104,
+      -35.45
+    ],
+    "bbox_min": [
+      -73.49,
+      -41.914,
+      -83.076
+    ],
+    "bbox_max": [
+      -12.196,
+      34.046,
+      15.647
+    ],
+    "explode_vector": [
+      -93.3,
+      -4.598,
+      -7.944
+    ]
+  },
+  {
+    "id": "left_temporal_bone",
+    "name": "Left Temporal Bone",
+    "latin": "Os temporale sinistrum",
+    "fma": "FMA52739",
+    "category": "Neurocranium (Cranial Base)",
+    "subgroup": "Lateral Base",
+    "color": "#c2a890",
+    "description": "Complex bone situated at the left lateral base of the skull.",
+    "articulations": [
+      "Left Parietal",
+      "Sphenoid",
+      "Occipital",
+      "Left Zygomatic",
+      "Mandible (TMJ)"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 3013,
+    "face_count": 4936,
+    "centroid": [
+      51.719,
+      -4.111,
+      -35.5
+    ],
+    "bbox_min": [
+      12.123,
+      -42.004,
+      -83.018
+    ],
+    "bbox_max": [
+      73.085,
+      33.976,
+      15.478
+    ],
+    "explode_vector": [
+      93.293,
+      -4.634,
+      -8.004
+    ]
+  },
+  {
+    "id": "ethmoid_bone",
+    "name": "Ethmoid Bone",
+    "latin": "Os ethmoidale",
+    "fma": "FMA52737",
+    "category": "Neurocranium (Cranial Base)",
+    "subgroup": "Anterior Base",
+    "color": "#dfd0bc",
+    "description": "Porous, lightweight bone positioned at the anterior cranial base between the two orbits. Supports the olfactory bulbs on the cribriform plate and forms the superior nasal septum.",
+    "articulations": [
+      "Sphenoid",
+      "Frontal",
+      "Vomer",
+      "Inferior Nasal Conchae",
+      "Nasal bones",
+      "Maxillae",
+      "Lacrimals",
+      "Palatines"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 12484,
+    "face_count": 22276,
+    "centroid": [
+      -0.155,
+      -5.391,
+      24.604
+    ],
+    "bbox_min": [
+      -21.011,
+      -20.204,
+      1.727
+    ],
+    "bbox_max": [
+      20.701,
+      14.856,
+      49.111
+    ],
+    "explode_vector": [
+      -0.392,
+      -13.644,
+      62.272
+    ]
+  },
+  {
+    "id": "right_maxilla",
+    "name": "Right Maxilla",
+    "latin": "Maxilla dextra",
+    "fma": "FMA52748",
+    "category": "Viscerocranium (Facial)",
+    "subgroup": "Upper Jaw",
+    "color": "#ecd8c2",
+    "description": "Forms the right upper jaw, hard palate floor, orbital floor, and lateral nasal aperture. Houses the right maxillary secondary dentition (FDI 11\u201317).",
+    "articulations": [
+      "Left Maxilla (Intermaxillary suture)",
+      "Frontal",
+      "Ethmoid",
+      "Nasal",
+      "Zygomatic",
+      "Lacrimal",
+      "Inferior Concha",
+      "Palatine",
+      "Vomer"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 3513,
+    "face_count": 5324,
+    "centroid": [
+      -19.314,
+      -30.094,
+      37.75
+    ],
+    "bbox_min": [
+      -47.111,
+      -53.494,
+      11.285
+    ],
+    "bbox_max": [
+      0.248,
+      15.866,
+      65.94
+    ],
+    "explode_vector": [
+      -28.6,
+      -22.282,
+      78.26
+    ]
+  },
+  {
+    "id": "left_maxilla",
+    "name": "Left Maxilla",
+    "latin": "Maxilla sinistra",
+    "fma": "FMA52749",
+    "category": "Viscerocranium (Facial)",
+    "subgroup": "Upper Jaw",
+    "color": "#ecd8c2",
+    "description": "Forms the left upper jaw, hard palate floor, orbital floor, and lateral nasal aperture. Houses the left maxillary secondary dentition (FDI 21\u201327).",
+    "articulations": [
+      "Right Maxilla (Intermaxillary suture)",
+      "Frontal",
+      "Ethmoid",
+      "Nasal",
+      "Zygomatic",
+      "Lacrimal",
+      "Inferior Concha",
+      "Palatine",
+      "Vomer"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 3577,
+    "face_count": 5198,
+    "centroid": [
+      18.6,
+      -30.198,
+      37.379
+    ],
+    "bbox_min": [
+      -2.569,
+      -53.494,
+      8.725
+    ],
+    "bbox_max": [
+      46.294,
+      15.806,
+      64.791
+    ],
+    "explode_vector": [
+      27.873,
+      -22.627,
+      78.423
+    ]
+  },
+  {
+    "id": "mandible",
+    "name": "Mandible",
+    "latin": "Mandibula",
+    "fma": "FMA52747",
+    "category": "Viscerocranium (Facial)",
+    "subgroup": "Lower Jaw",
+    "color": "#d9c3ad",
+    "description": "The strongest and only mobile bone of the skull. Comprises a curved horizontal body housing the 14 mandibular teeth (FDI 31\u201337, 41\u201347) and bilateral rami articulating with the temporal glenoid fossae (TMJ).",
+    "articulations": [
+      "Temporals (Bilateral Temporomandibular Joints)"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 2845,
+    "face_count": 5576,
+    "centroid": [
+      -0.15,
+      -59.375,
+      11.543
+    ],
+    "bbox_min": [
+      -53.347,
+      -95.854,
+      -28.235
+    ],
+    "bbox_max": [
+      53.053,
+      -11.384,
+      55.743
+    ],
+    "explode_vector": [
+      -0.182,
+      -101.007,
+      7.013
+    ]
+  },
+  {
+    "id": "right_zygomatic_bone",
+    "name": "Right Zygomatic Bone",
+    "latin": "Os zygomaticum dextrum",
+    "fma": "FMA52750",
+    "category": "Viscerocranium (Facial)",
+    "subgroup": "Cheek & Orbit",
+    "color": "#d3bc9f",
+    "description": "Cheekbone forming the prominence of the right cheek, inferolateral orbital margin, and anterior half of the zygomatic arch.",
+    "articulations": [
+      "Right Maxilla",
+      "Right Temporal (Zygomatic arch)",
+      "Frontal",
+      "Sphenoid"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 934,
+    "face_count": 1556,
+    "centroid": [
+      -48.3,
+      -11.459,
+      26.29
+    ],
+    "bbox_min": [
+      -64.079,
+      -36.844,
+      3.685
+    ],
+    "bbox_max": [
+      -32.735,
+      19.156,
+      43.364
+    ],
+    "explode_vector": [
+      -88.467,
+      -13.992,
+      38.523
+    ]
+  },
+  {
+    "id": "left_zygomatic_bone",
+    "name": "Left Zygomatic Bone",
+    "latin": "Os zygomaticum sinistrum",
+    "fma": "FMA52751",
+    "category": "Viscerocranium (Facial)",
+    "subgroup": "Cheek & Orbit",
+    "color": "#d3bc9f",
+    "description": "Cheekbone forming the prominence of the left cheek, inferolateral orbital margin, and anterior half of the zygomatic arch.",
+    "articulations": [
+      "Left Maxilla",
+      "Left Temporal (Zygomatic arch)",
+      "Frontal",
+      "Sphenoid"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 929,
+    "face_count": 1434,
+    "centroid": [
+      48.05,
+      -11.575,
+      26.447
+    ],
+    "bbox_min": [
+      32.393,
+      -36.864,
+      3.654
+    ],
+    "bbox_max": [
+      63.744,
+      19.256,
+      43.343
+    ],
+    "explode_vector": [
+      88.284,
+      -14.178,
+      38.873
+    ]
+  },
+  {
+    "id": "right_nasal_bone",
+    "name": "Right Nasal Bone",
+    "latin": "Os nasale dextrum",
+    "fma": "FMA52756",
+    "category": "Viscerocranium (Facial)",
+    "subgroup": "Nasal Complex",
+    "color": "#e2d2be",
+    "description": "Small oblong bone forming the right superior bridge of the nose.",
+    "articulations": [
+      "Left Nasal",
+      "Frontal (Internasal)",
+      "Right Maxilla",
+      "Ethmoid"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 265,
+    "face_count": 416,
+    "centroid": [
+      -4.028,
+      -0.827,
+      61.769
+    ],
+    "bbox_min": [
+      -8.649,
+      -16.314,
+      51.496
+    ],
+    "bbox_max": [
+      -0.242,
+      15.706,
+      72.744
+    ],
+    "explode_vector": [
+      -4.032,
+      -0.753,
+      101.167
+    ]
+  },
+  {
+    "id": "left_nasal_bone",
+    "name": "Left Nasal Bone",
+    "latin": "Os nasale sinistrum",
+    "fma": "FMA52757",
+    "category": "Viscerocranium (Facial)",
+    "subgroup": "Nasal Complex",
+    "color": "#e2d2be",
+    "description": "Small oblong bone forming the left superior bridge of the nose.",
+    "articulations": [
+      "Right Nasal",
+      "Frontal (Internasal)",
+      "Left Maxilla",
+      "Ethmoid"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 263,
+    "face_count": 438,
+    "centroid": [
+      2.497,
+      -0.609,
+      61.997
+    ],
+    "bbox_min": [
+      -2.023,
+      -15.634,
+      51.201
+    ],
+    "bbox_max": [
+      7.699,
+      16.006,
+      71.378
+    ],
+    "explode_vector": [
+      2.491,
+      -0.552,
+      101.218
+    ]
+  },
+  {
+    "id": "right_palatine_bone",
+    "name": "Right Palatine Bone",
+    "latin": "Os palatinum dextrum",
+    "fma": "FMA52752",
+    "category": "Viscerocranium (Facial)",
+    "subgroup": "Deep Facial",
+    "color": "#d6c1a8",
+    "description": "L-shaped bone forming the posterior portion of the hard palate and lateral wall of the nasal cavity.",
+    "articulations": [
+      "Left Palatine",
+      "Right Maxilla",
+      "Sphenoid",
+      "Ethmoid",
+      "Vomer",
+      "Inferior Concha"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 1132,
+    "face_count": 1736,
+    "centroid": [
+      -12.642,
+      -27.074,
+      12.736
+    ],
+    "bbox_min": [
+      -28.311,
+      -47.034,
+      -14.776
+    ],
+    "bbox_max": [
+      0.646,
+      -4.144,
+      31.818
+    ],
+    "explode_vector": [
+      -26.841,
+      -63.229,
+      18.928
+    ]
+  },
+  {
+    "id": "left_palatine_bone",
+    "name": "Left Palatine Bone",
+    "latin": "Os palatinum sinistrum",
+    "fma": "FMA52753",
+    "category": "Viscerocranium (Facial)",
+    "subgroup": "Deep Facial",
+    "color": "#d6c1a8",
+    "description": "L-shaped bone forming the posterior left portion of the hard palate.",
+    "articulations": [
+      "Right Palatine",
+      "Left Maxilla",
+      "Sphenoid",
+      "Ethmoid",
+      "Vomer",
+      "Inferior Concha"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 1164,
+    "face_count": 1938,
+    "centroid": [
+      12.257,
+      -27.087,
+      12.719
+    ],
+    "bbox_min": [
+      -1.044,
+      -47.324,
+      -14.767
+    ],
+    "bbox_max": [
+      27.958,
+      -4.084,
+      31.873
+    ],
+    "explode_vector": [
+      26.126,
+      -63.512,
+      18.978
+    ]
+  },
+  {
+    "id": "right_lacrimal_bone",
+    "name": "Right Lacrimal Bone",
+    "latin": "Os lacrimale dextrum",
+    "fma": "FMA52754",
+    "category": "Viscerocranium (Facial)",
+    "subgroup": "Orbit",
+    "color": "#eae0d3",
+    "description": "Smallest and most fragile bone of the face, situated at the anterior medial wall of the right orbit. Contributes to the nasolacrimal canal.",
+    "articulations": [
+      "Frontal",
+      "Ethmoid",
+      "Right Maxilla",
+      "Inferior Concha"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 401,
+    "face_count": 702,
+    "centroid": [
+      -11.568,
+      -3.047,
+      39.976
+    ],
+    "bbox_min": [
+      -17.543,
+      -15.604,
+      32.858
+    ],
+    "bbox_max": [
+      -6.987,
+      9.866,
+      47.421
+    ],
+    "explode_vector": [
+      -17.896,
+      -4.714,
+      80.398
+    ]
+  },
+  {
+    "id": "left_lacrimal_bone",
+    "name": "Left Lacrimal Bone",
+    "latin": "Os lacrimale sinistrum",
+    "fma": "FMA52755",
+    "category": "Viscerocranium (Facial)",
+    "subgroup": "Orbit",
+    "color": "#eae0d3",
+    "description": "Small, fragile bone forming the anterior medial wall of the left orbit.",
+    "articulations": [
+      "Frontal",
+      "Ethmoid",
+      "Left Maxilla",
+      "Inferior Concha"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 366,
+    "face_count": 640,
+    "centroid": [
+      12.088,
+      -5.492,
+      39.962
+    ],
+    "bbox_min": [
+      7.819,
+      -19.614,
+      32.675
+    ],
+    "bbox_max": [
+      18.43,
+      9.396,
+      46.643
+    ],
+    "explode_vector": [
+      18.599,
+      -8.449,
+      79.931
+    ]
+  },
+  {
+    "id": "right_inferior_nasal_concha",
+    "name": "Right Inferior Nasal Concha",
+    "latin": "Concha nasalis inferior dextra",
+    "fma": "FMA52758",
+    "category": "Viscerocranium (Facial)",
+    "subgroup": "Nasal Complex",
+    "color": "#ded0be",
+    "description": "Curved lamina extending horizontally along the lateral wall of the right nasal cavity, optimizing airflow warming and humidification.",
+    "articulations": [
+      "Ethmoid",
+      "Right Maxilla",
+      "Lacrimal",
+      "Palatine"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 572,
+    "face_count": 714,
+    "centroid": [
+      -10.546,
+      -29.539,
+      31.026
+    ],
+    "bbox_min": [
+      -16.033,
+      -38.964,
+      11.872
+    ],
+    "bbox_max": [
+      -6.189,
+      -19.004,
+      48.238
+    ],
+    "explode_vector": [
+      -17.06,
+      -47.783,
+      60.227
+    ]
+  },
+  {
+    "id": "left_inferior_nasal_concha",
+    "name": "Left Inferior Nasal Concha",
+    "latin": "Concha nasalis inferior sinistra",
+    "fma": "FMA52759",
+    "category": "Viscerocranium (Facial)",
+    "subgroup": "Nasal Complex",
+    "color": "#ded0be",
+    "description": "Curved lamina extending along the lateral wall of the left nasal cavity.",
+    "articulations": [
+      "Ethmoid",
+      "Left Maxilla",
+      "Lacrimal",
+      "Palatine"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 482,
+    "face_count": 738,
+    "centroid": [
+      9.308,
+      -28.034,
+      35.426
+    ],
+    "bbox_min": [
+      5.09,
+      -34.824,
+      15.862
+    ],
+    "bbox_max": [
+      16.439,
+      -19.434,
+      51.391
+    ],
+    "explode_vector": [
+      14.16,
+      -42.647,
+      64.671
+    ]
+  },
+  {
+    "id": "vomer",
+    "name": "Vomer",
+    "latin": "Vomer",
+    "fma": "FMA52760",
+    "category": "Viscerocranium (Facial)",
+    "subgroup": "Nasal Complex",
+    "color": "#cbbaa5",
+    "description": "Unpaired ploughshare-shaped bone forming the posterior and postero-inferior portion of the bony nasal septum.",
+    "articulations": [
+      "Sphenoid",
+      "Ethmoid",
+      "Left & Right Maxillae",
+      "Left & Right Palatines"
+    ],
+    "is_anchor": false,
+    "is_tooth": false,
+    "vertex_count": 3660,
+    "face_count": 7218,
+    "centroid": [
+      -0.155,
+      -23.087,
+      17.23
+    ],
+    "bbox_min": [
+      -5.612,
+      -42.894,
+      -7.342
+    ],
+    "bbox_max": [
+      5.31,
+      0.626,
+      47.718
+    ],
+    "explode_vector": [
+      -0.362,
+      -64.455,
+      20.043
+    ]
+  },
+  {
+    "id": "tooth_11",
+    "fdi": "11",
+    "universal": "8 (UR1)",
+    "name": "Upper Right Central Incisor (#11)",
+    "latin": "Dens incisivus primus superior dexter",
+    "fma": "FMA55681",
+    "bp": "BP7683",
+    "category": "Permanent Dentition (Maxillary Arch)",
+    "subgroup": "Q1 (Upper Right)",
+    "tooth_type": "Central Incisor",
+    "parent_bone": "right_maxilla",
+    "roots": "Single Root (conical)",
+    "color": "#faf8f2",
+    "description": "Right maxillary central incisor (FDI 11 / UR1). Shovel-shaped crown with straight incisal edge and conical single root. Critical for anterior aesthetic display, incisal guidance, and phonetics.",
+    "articulations": [
+      "Alveolus of Right Maxilla",
+      "Central Incisor",
+      "Single Root (conical)",
+      "Q1 (Upper Right)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 647,
+    "face_count": 1288,
+    "centroid": [
+      -4.442,
+      -54.118,
+      59.398
+    ],
+    "bbox_min": [
+      -9.18,
+      -65.114,
+      52.372
+    ],
+    "bbox_max": [
+      -0.31,
+      -38.724,
+      65.243
+    ],
+    "explode_vector": [
+      -28.6,
+      -37.282,
+      78.26
+    ]
+  },
+  {
+    "id": "tooth_12",
+    "fdi": "12",
+    "universal": "7 (UR2)",
+    "name": "Upper Right Lateral Incisor (#12)",
+    "latin": "Dens incisivus secundus superior dexter",
+    "fma": "FMA55680",
+    "bp": "BP7747",
+    "category": "Permanent Dentition (Maxillary Arch)",
+    "subgroup": "Q1 (Upper Right)",
+    "tooth_type": "Lateral Incisor",
+    "parent_bone": "right_maxilla",
+    "roots": "Single Root (slight distal apical curve)",
+    "color": "#faf8f2",
+    "description": "Right maxillary lateral incisor (FDI 12 / UR2). Rounded incisal angles with single slender root. Shows highest anatomical variability among anterior teeth (peg laterals, palatogingival grooves).",
+    "articulations": [
+      "Alveolus of Right Maxilla",
+      "Lateral Incisor",
+      "Single Root (slight distal apical curve)",
+      "Q1 (Upper Right)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 686,
+    "face_count": 1368,
+    "centroid": [
+      -11.256,
+      -52.892,
+      56.515
+    ],
+    "bbox_min": [
+      -16.376,
+      -65.814,
+      50.845
+    ],
+    "bbox_max": [
+      -6.802,
+      -36.894,
+      62.161
+    ],
+    "explode_vector": [
+      -28.6,
+      -37.282,
+      78.26
+    ]
+  },
+  {
+    "id": "tooth_13",
+    "fdi": "13",
+    "universal": "6 (UR3)",
+    "name": "Upper Right Canine (#13)",
+    "latin": "Dens caninus superior dexter",
+    "fma": "FMA55798",
+    "bp": "BP7684",
+    "category": "Permanent Dentition (Maxillary Arch)",
+    "subgroup": "Q1 (Upper Right)",
+    "tooth_type": "Canine",
+    "parent_bone": "right_maxilla",
+    "roots": "Single Root (longest root in dentition, canine eminence)",
+    "color": "#faf8f2",
+    "description": "Right maxillary canine (FDI 13 / UR3). Cornerstone of the dental arch with prominent labial ridge and canine eminence. Single robust root providing canine-protected mutually protected occlusion.",
+    "articulations": [
+      "Alveolus of Right Maxilla",
+      "Canine",
+      "Single Root (longest root in dentition, canine eminence)",
+      "Q1 (Upper Right)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 698,
+    "face_count": 1392,
+    "centroid": [
+      -17.289,
+      -51.565,
+      52.613
+    ],
+    "bbox_min": [
+      -22.254,
+      -64.354,
+      48.524
+    ],
+    "bbox_max": [
+      -12.997,
+      -32.974,
+      57.843
+    ],
+    "explode_vector": [
+      -28.6,
+      -37.282,
+      78.26
+    ]
+  },
+  {
+    "id": "tooth_14",
+    "fdi": "14",
+    "universal": "5 (UR4)",
+    "name": "Upper Right First Premolar (#14)",
+    "latin": "Dens praemolaris primus superior dexter",
+    "fma": "FMA55689",
+    "bp": "BP7681",
+    "category": "Permanent Dentition (Maxillary Arch)",
+    "subgroup": "Q1 (Upper Right)",
+    "tooth_type": "First Premolar",
+    "parent_bone": "right_maxilla",
+    "roots": "Bifurcated Root (buccal & palatal)",
+    "color": "#faf8f2",
+    "description": "Right maxillary first premolar (FDI 14 / UR4). Distinctive two-cusp occlusal table with mesial concavity and bifurcated buccal and palatal roots.",
+    "articulations": [
+      "Alveolus of Right Maxilla",
+      "First Premolar",
+      "Bifurcated Root (buccal & palatal)",
+      "Q1 (Upper Right)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 816,
+    "face_count": 1610,
+    "centroid": [
+      -20.217,
+      -49.592,
+      45.608
+    ],
+    "bbox_min": [
+      -25.452,
+      -62.744,
+      41.408
+    ],
+    "bbox_max": [
+      -15.939,
+      -34.304,
+      49.445
+    ],
+    "explode_vector": [
+      -28.6,
+      -37.282,
+      78.26
+    ]
+  },
+  {
+    "id": "tooth_15",
+    "fdi": "15",
+    "universal": "4 (UR5)",
+    "name": "Upper Right Second Premolar (#15)",
+    "latin": "Dens praemolaris secundus superior dexter",
+    "fma": "FMA55688",
+    "bp": "BP7682",
+    "category": "Permanent Dentition (Maxillary Arch)",
+    "subgroup": "Q1 (Upper Right)",
+    "tooth_type": "Second Premolar",
+    "parent_bone": "right_maxilla",
+    "roots": "Single Root",
+    "color": "#faf8f2",
+    "description": "Right maxillary second premolar (FDI 15 / UR5). Symmetrical cusps of nearly equal height with single oval root.",
+    "articulations": [
+      "Alveolus of Right Maxilla",
+      "Second Premolar",
+      "Single Root",
+      "Q1 (Upper Right)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 748,
+    "face_count": 1466,
+    "centroid": [
+      -23.442,
+      -49.734,
+      39.709
+    ],
+    "bbox_min": [
+      -28.441,
+      -61.644,
+      35.496
+    ],
+    "bbox_max": [
+      -19.148,
+      -35.694,
+      43.074
+    ],
+    "explode_vector": [
+      -28.6,
+      -37.282,
+      78.26
+    ]
+  },
+  {
+    "id": "tooth_16",
+    "fdi": "16",
+    "universal": "3 (UR6)",
+    "name": "Upper Right First Molar (#16)",
+    "latin": "Dens molaris primus superior dexter",
+    "fma": "FMA55698",
+    "bp": "BP7680",
+    "category": "Permanent Dentition (Maxillary Arch)",
+    "subgroup": "Q1 (Upper Right)",
+    "tooth_type": "First Molar",
+    "parent_bone": "right_maxilla",
+    "roots": "Three Roots (mesiobuccal, distobuccal, palatal)",
+    "color": "#faf8f2",
+    "description": "Right maxillary first molar (FDI 16 / UR6). Key of Angle's Class I occlusion. Rhomboidal occlusal outline with prominent oblique ridge and tripod three-root configuration.",
+    "articulations": [
+      "Alveolus of Right Maxilla",
+      "First Molar",
+      "Three Roots (mesiobuccal, distobuccal, palatal)",
+      "Q1 (Upper Right)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 1099,
+    "face_count": 2156,
+    "centroid": [
+      -25.039,
+      -47.984,
+      30.957
+    ],
+    "bbox_min": [
+      -30.69,
+      -59.614,
+      24.576
+    ],
+    "bbox_max": [
+      -19.13,
+      -35.064,
+      36.075
+    ],
+    "explode_vector": [
+      -28.6,
+      -37.282,
+      78.26
+    ]
+  },
+  {
+    "id": "tooth_17",
+    "fdi": "17",
+    "universal": "2 (UR7)",
+    "name": "Upper Right Second Molar (#17)",
+    "latin": "Dens molaris secundus superior dexter",
+    "fma": "FMA55697",
+    "bp": "BP5452",
+    "category": "Permanent Dentition (Maxillary Arch)",
+    "subgroup": "Q1 (Upper Right)",
+    "tooth_type": "Second Molar",
+    "parent_bone": "right_maxilla",
+    "roots": "Three Roots (less divergent)",
+    "color": "#faf8f2",
+    "description": "Right maxillary second molar (FDI 17 / UR7). Smaller heart-shaped or rhomboid crown with three converging roots.",
+    "articulations": [
+      "Alveolus of Right Maxilla",
+      "Second Molar",
+      "Three Roots (less divergent)",
+      "Q1 (Upper Right)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 961,
+    "face_count": 1850,
+    "centroid": [
+      -24.98,
+      -44.874,
+      21.774
+    ],
+    "bbox_min": [
+      -30.362,
+      -56.014,
+      16.748
+    ],
+    "bbox_max": [
+      -18.452,
+      -33.344,
+      26.549
+    ],
+    "explode_vector": [
+      -28.6,
+      -37.282,
+      78.26
+    ]
+  },
+  {
+    "id": "tooth_21",
+    "fdi": "21",
+    "universal": "9 (UL1)",
+    "name": "Upper Left Central Incisor (#21)",
+    "latin": "Dens incisivus primus superior sinister",
+    "fma": "FMA55682",
+    "bp": "BP5440",
+    "category": "Permanent Dentition (Maxillary Arch)",
+    "subgroup": "Q2 (Upper Left)",
+    "tooth_type": "Central Incisor",
+    "parent_bone": "left_maxilla",
+    "roots": "Single Root (conical)",
+    "color": "#faf8f2",
+    "description": "Left maxillary central incisor (FDI 21 / UL1). Shovel-shaped crown with straight incisal edge and conical single root. Primary aesthetic key.",
+    "articulations": [
+      "Alveolus of Left Maxilla",
+      "Central Incisor",
+      "Single Root (conical)",
+      "Q2 (Upper Left)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 646,
+    "face_count": 1288,
+    "centroid": [
+      4.132,
+      -54.119,
+      59.399
+    ],
+    "bbox_min": [
+      0.015,
+      -65.124,
+      52.381
+    ],
+    "bbox_max": [
+      8.866,
+      -38.694,
+      65.26
+    ],
+    "explode_vector": [
+      27.873,
+      -37.627,
+      78.423
+    ]
+  },
+  {
+    "id": "tooth_22",
+    "fdi": "22",
+    "universal": "10 (UL2)",
+    "name": "Upper Left Lateral Incisor (#22)",
+    "latin": "Dens incisivus secundus superior sinister",
+    "fma": "FMA55683",
+    "bp": "BP5438",
+    "category": "Permanent Dentition (Maxillary Arch)",
+    "subgroup": "Q2 (Upper Left)",
+    "tooth_type": "Lateral Incisor",
+    "parent_bone": "left_maxilla",
+    "roots": "Single Root",
+    "color": "#faf8f2",
+    "description": "Left maxillary lateral incisor (FDI 22 / UL2). Single slender root with rounded disto-incisal angle.",
+    "articulations": [
+      "Alveolus of Left Maxilla",
+      "Lateral Incisor",
+      "Single Root",
+      "Q2 (Upper Left)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 691,
+    "face_count": 1378,
+    "centroid": [
+      10.958,
+      -52.951,
+      56.574
+    ],
+    "bbox_min": [
+      6.487,
+      -65.814,
+      50.848
+    ],
+    "bbox_max": [
+      16.098,
+      -36.884,
+      62.522
+    ],
+    "explode_vector": [
+      27.873,
+      -37.627,
+      78.423
+    ]
+  },
+  {
+    "id": "tooth_23",
+    "fdi": "23",
+    "universal": "11 (UL3)",
+    "name": "Upper Left Canine (#23)",
+    "latin": "Dens caninus superior sinister",
+    "fma": "FMA55799",
+    "bp": "BP5482",
+    "category": "Permanent Dentition (Maxillary Arch)",
+    "subgroup": "Q2 (Upper Left)",
+    "tooth_type": "Canine",
+    "parent_bone": "left_maxilla",
+    "roots": "Single Root (longest root in dentition, canine eminence)",
+    "color": "#faf8f2",
+    "description": "Left maxillary canine (FDI 23 / UL3). Strong canine cusp discluding posterior teeth during lateral excursions.",
+    "articulations": [
+      "Alveolus of Left Maxilla",
+      "Canine",
+      "Single Root (longest root in dentition, canine eminence)",
+      "Q2 (Upper Left)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 698,
+    "face_count": 1392,
+    "centroid": [
+      16.977,
+      -51.565,
+      52.616
+    ],
+    "bbox_min": [
+      12.703,
+      -64.344,
+      48.536
+    ],
+    "bbox_max": [
+      21.95,
+      -32.964,
+      57.841
+    ],
+    "explode_vector": [
+      27.873,
+      -37.627,
+      78.423
+    ]
+  },
+  {
+    "id": "tooth_24",
+    "fdi": "24",
+    "universal": "12 (UL4)",
+    "name": "Upper Left First Premolar (#24)",
+    "latin": "Dens praemolaris primus superior sinister",
+    "fma": "FMA55690",
+    "bp": "BP5468",
+    "category": "Permanent Dentition (Maxillary Arch)",
+    "subgroup": "Q2 (Upper Left)",
+    "tooth_type": "First Premolar",
+    "parent_bone": "left_maxilla",
+    "roots": "Bifurcated Root (buccal & palatal)",
+    "color": "#faf8f2",
+    "description": "Left maxillary first premolar (FDI 24 / UL4). Two cusps with mesial developmental groove and bifurcated roots.",
+    "articulations": [
+      "Alveolus of Left Maxilla",
+      "First Premolar",
+      "Bifurcated Root (buccal & palatal)",
+      "Q2 (Upper Left)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 818,
+    "face_count": 1610,
+    "centroid": [
+      19.903,
+      -49.589,
+      45.608
+    ],
+    "bbox_min": [
+      15.661,
+      -62.764,
+      41.401
+    ],
+    "bbox_max": [
+      25.132,
+      -34.314,
+      49.425
+    ],
+    "explode_vector": [
+      27.873,
+      -37.627,
+      78.423
+    ]
+  },
+  {
+    "id": "tooth_25",
+    "fdi": "25",
+    "universal": "13 (UL5)",
+    "name": "Upper Left Second Premolar (#25)",
+    "latin": "Dens praemolaris secundus superior sinister",
+    "fma": "FMA55691",
+    "bp": "BP5466",
+    "category": "Permanent Dentition (Maxillary Arch)",
+    "subgroup": "Q2 (Upper Left)",
+    "tooth_type": "Second Premolar",
+    "parent_bone": "left_maxilla",
+    "roots": "Single Root",
+    "color": "#faf8f2",
+    "description": "Left maxillary second premolar (FDI 25 / UL5). Symmetrical bicuspid with single tapering root.",
+    "articulations": [
+      "Alveolus of Left Maxilla",
+      "Second Premolar",
+      "Single Root",
+      "Q2 (Upper Left)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 748,
+    "face_count": 1466,
+    "centroid": [
+      23.132,
+      -49.729,
+      39.708
+    ],
+    "bbox_min": [
+      18.828,
+      -61.634,
+      35.503
+    ],
+    "bbox_max": [
+      28.126,
+      -35.694,
+      43.079
+    ],
+    "explode_vector": [
+      27.873,
+      -37.627,
+      78.423
+    ]
+  },
+  {
+    "id": "tooth_26",
+    "fdi": "26",
+    "universal": "14 (UL6)",
+    "name": "Upper Left First Molar (#26)",
+    "latin": "Dens molaris primus superior sinister",
+    "fma": "FMA55699",
+    "bp": "BP5455",
+    "category": "Permanent Dentition (Maxillary Arch)",
+    "subgroup": "Q2 (Upper Left)",
+    "tooth_type": "First Molar",
+    "parent_bone": "left_maxilla",
+    "roots": "Three Roots (mesiobuccal, distobuccal, palatal)",
+    "color": "#faf8f2",
+    "description": "Left maxillary first molar (FDI 26 / UL6). Angle Class I key of occlusion with prominent Cusp of Carabelli potential and three tripod roots.",
+    "articulations": [
+      "Alveolus of Left Maxilla",
+      "First Molar",
+      "Three Roots (mesiobuccal, distobuccal, palatal)",
+      "Q2 (Upper Left)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 1084,
+    "face_count": 2156,
+    "centroid": [
+      24.727,
+      -47.98,
+      30.958
+    ],
+    "bbox_min": [
+      18.811,
+      -59.614,
+      24.557
+    ],
+    "bbox_max": [
+      30.386,
+      -35.044,
+      36.096
+    ],
+    "explode_vector": [
+      27.873,
+      -37.627,
+      78.423
+    ]
+  },
+  {
+    "id": "tooth_27",
+    "fdi": "27",
+    "universal": "15 (UL7)",
+    "name": "Upper Left Second Molar (#27)",
+    "latin": "Dens molaris secundus superior sinister",
+    "fma": "FMA55700",
+    "bp": "BP5453",
+    "category": "Permanent Dentition (Maxillary Arch)",
+    "subgroup": "Q2 (Upper Left)",
+    "tooth_type": "Second Molar",
+    "parent_bone": "left_maxilla",
+    "roots": "Three Roots",
+    "color": "#faf8f2",
+    "description": "Left maxillary second molar (FDI 27 / UL7). Distolingual cusp diminished or absent, three roots closer together.",
+    "articulations": [
+      "Alveolus of Left Maxilla",
+      "Second Molar",
+      "Three Roots",
+      "Q2 (Upper Left)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 949,
+    "face_count": 1848,
+    "centroid": [
+      24.67,
+      -44.876,
+      21.773
+    ],
+    "bbox_min": [
+      18.17,
+      -56.014,
+      16.722
+    ],
+    "bbox_max": [
+      30.024,
+      -33.354,
+      26.581
+    ],
+    "explode_vector": [
+      27.873,
+      -37.627,
+      78.423
+    ]
+  },
+  {
+    "id": "tooth_31",
+    "fdi": "31",
+    "universal": "24 (LL1)",
+    "name": "Lower Left Central Incisor (#31)",
+    "latin": "Dens incisivus primus inferior sinister",
+    "fma": "FMA57143",
+    "bp": "BP5447",
+    "category": "Permanent Dentition (Mandibular Arch)",
+    "subgroup": "Q3 (Lower Left)",
+    "tooth_type": "Central Incisor",
+    "parent_bone": "mandible",
+    "roots": "Single Root (narrow, flattened mesiodistally)",
+    "color": "#faf8f2",
+    "description": "Left mandibular central incisor (FDI 31 / LL1). The smallest and most symmetrical tooth in the permanent human dentition with a single flat root.",
+    "articulations": [
+      "Alveolus of Mandible",
+      "Central Incisor",
+      "Single Root (narrow, flattened mesiodistally)",
+      "Q3 (Lower Left)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 461,
+    "face_count": 918,
+    "centroid": [
+      2.463,
+      -74.478,
+      51.997
+    ],
+    "bbox_min": [
+      0.008,
+      -89.404,
+      42.18
+    ],
+    "bbox_max": [
+      5.89,
+      -63.934,
+      60.401
+    ],
+    "explode_vector": [
+      -0.182,
+      -86.007,
+      7.013
+    ]
+  },
+  {
+    "id": "tooth_32",
+    "fdi": "32",
+    "universal": "23 (LL2)",
+    "name": "Lower Left Lateral Incisor (#32)",
+    "latin": "Dens incisivus secundus inferior sinister",
+    "fma": "FMA57141",
+    "bp": "BP5444",
+    "category": "Permanent Dentition (Mandibular Arch)",
+    "subgroup": "Q3 (Lower Left)",
+    "tooth_type": "Lateral Incisor",
+    "parent_bone": "mandible",
+    "roots": "Single Root",
+    "color": "#faf8f2",
+    "description": "Left mandibular lateral incisor (FDI 32 / LL2). Slightly larger than central incisor with incisal edge twisted slightly distally on the root base.",
+    "articulations": [
+      "Alveolus of Mandible",
+      "Lateral Incisor",
+      "Single Root",
+      "Q3 (Lower Left)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 483,
+    "face_count": 960,
+    "centroid": [
+      7.138,
+      -73.892,
+      51.952
+    ],
+    "bbox_min": [
+      4.027,
+      -89.104,
+      42.887
+    ],
+    "bbox_max": [
+      11.886,
+      -63.964,
+      59.714
+    ],
+    "explode_vector": [
+      -0.182,
+      -86.007,
+      7.013
+    ]
+  },
+  {
+    "id": "tooth_33",
+    "fdi": "33",
+    "universal": "22 (LL3)",
+    "name": "Lower Left Canine (#33)",
+    "latin": "Dens caninus inferior sinister",
+    "fma": "FMA55687",
+    "bp": "BP5480",
+    "category": "Permanent Dentition (Mandibular Arch)",
+    "subgroup": "Q3 (Lower Left)",
+    "tooth_type": "Canine",
+    "parent_bone": "mandible",
+    "roots": "Single Root (long, stable mandibular anchor)",
+    "color": "#faf8f2",
+    "description": "Left mandibular canine (FDI 33 / LL3). Long, smooth labial contour with single powerful root anchoring the mandibular anterior corner.",
+    "articulations": [
+      "Alveolus of Mandible",
+      "Canine",
+      "Single Root (long, stable mandibular anchor)",
+      "Q3 (Lower Left)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 592,
+    "face_count": 1180,
+    "centroid": [
+      12.15,
+      -74.976,
+      48.464
+    ],
+    "bbox_min": [
+      8.189,
+      -90.334,
+      40.171
+    ],
+    "bbox_max": [
+      16.804,
+      -63.504,
+      55.767
+    ],
+    "explode_vector": [
+      -0.182,
+      -86.007,
+      7.013
+    ]
+  },
+  {
+    "id": "tooth_34",
+    "fdi": "34",
+    "universal": "21 (LL4)",
+    "name": "Lower Left First Premolar (#34)",
+    "latin": "Dens praemolaris primus inferior sinister",
+    "fma": "FMA55693",
+    "bp": "BP5472",
+    "category": "Permanent Dentition (Mandibular Arch)",
+    "subgroup": "Q3 (Lower Left)",
+    "tooth_type": "First Premolar",
+    "parent_bone": "mandible",
+    "roots": "Single Root",
+    "color": "#faf8f2",
+    "description": "Left mandibular first premolar (FDI 34 / LL4). Dominant buccal cusp with small non-functional lingual cusp and single tapering root.",
+    "articulations": [
+      "Alveolus of Mandible",
+      "First Premolar",
+      "Single Root",
+      "Q3 (Lower Left)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 592,
+    "face_count": 1176,
+    "centroid": [
+      16.944,
+      -72.785,
+      42.745
+    ],
+    "bbox_min": [
+      13.087,
+      -85.404,
+      35.288
+    ],
+    "bbox_max": [
+      20.998,
+      -62.914,
+      49.411
+    ],
+    "explode_vector": [
+      -0.182,
+      -86.007,
+      7.013
+    ]
+  },
+  {
+    "id": "tooth_35",
+    "fdi": "35",
+    "universal": "20 (LL5)",
+    "name": "Lower Left Second Premolar (#35)",
+    "latin": "Dens praemolaris secundus inferior sinister",
+    "fma": "FMA55692",
+    "bp": "BP5475",
+    "category": "Permanent Dentition (Mandibular Arch)",
+    "subgroup": "Q3 (Lower Left)",
+    "tooth_type": "Second Premolar",
+    "parent_bone": "mandible",
+    "roots": "Single Root",
+    "color": "#faf8f2",
+    "description": "Left mandibular second premolar (FDI 35 / LL5). Frequently three-cusp type (one buccal, two lingual) with square occlusal table and single root.",
+    "articulations": [
+      "Alveolus of Mandible",
+      "Second Premolar",
+      "Single Root",
+      "Q3 (Lower Left)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 566,
+    "face_count": 1122,
+    "centroid": [
+      20.641,
+      -71.253,
+      35.805
+    ],
+    "bbox_min": [
+      16.079,
+      -85.024,
+      29.269
+    ],
+    "bbox_max": [
+      24.197,
+      -61.644,
+      42.567
+    ],
+    "explode_vector": [
+      -0.182,
+      -86.007,
+      7.013
+    ]
+  },
+  {
+    "id": "tooth_36",
+    "fdi": "36",
+    "universal": "19 (LL6)",
+    "name": "Lower Left First Molar (#36)",
+    "latin": "Dens molaris primus inferior sinister",
+    "fma": "FMA55704",
+    "bp": "BP5462",
+    "category": "Permanent Dentition (Mandibular Arch)",
+    "subgroup": "Q3 (Lower Left)",
+    "tooth_type": "First Molar",
+    "parent_bone": "mandible",
+    "roots": "Two Roots (mesial & distal, broad buccolingually)",
+    "color": "#faf8f2",
+    "description": "Left mandibular first molar (FDI 36 / LL6). Mandibular anchor of Class I occlusion. Features five cusps (3 buccal, 2 lingual) and two strong divergent roots.",
+    "articulations": [
+      "Alveolus of Mandible",
+      "First Molar",
+      "Two Roots (mesial & distal, broad buccolingually)",
+      "Q3 (Lower Left)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 885,
+    "face_count": 1762,
+    "centroid": [
+      23.528,
+      -67.081,
+      28.041
+    ],
+    "bbox_min": [
+      16.92,
+      -78.374,
+      20.883
+    ],
+    "bbox_max": [
+      29.254,
+      -58.674,
+      35.989
+    ],
+    "explode_vector": [
+      -0.182,
+      -86.007,
+      7.013
+    ]
+  },
+  {
+    "id": "tooth_37",
+    "fdi": "37",
+    "universal": "18 (LL7)",
+    "name": "Lower Left Second Molar (#37)",
+    "latin": "Dens molaris secundus inferior sinister",
+    "fma": "FMA55703",
+    "bp": "BP5459",
+    "category": "Permanent Dentition (Mandibular Arch)",
+    "subgroup": "Q3 (Lower Left)",
+    "tooth_type": "Second Molar",
+    "parent_bone": "mandible",
+    "roots": "Two Roots (less divergent)",
+    "color": "#faf8f2",
+    "description": "Left mandibular second molar (FDI 37 / LL7). Symmetrical four-cusp cross-groove occlusal pattern ('+ shape') with two parallel roots.",
+    "articulations": [
+      "Alveolus of Mandible",
+      "Second Molar",
+      "Two Roots (less divergent)",
+      "Q3 (Lower Left)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 823,
+    "face_count": 1616,
+    "centroid": [
+      27.27,
+      -63.248,
+      17.139
+    ],
+    "bbox_min": [
+      20.559,
+      -73.014,
+      8.251
+    ],
+    "bbox_max": [
+      32.657,
+      -54.314,
+      24.752
+    ],
+    "explode_vector": [
+      -0.182,
+      -86.007,
+      7.013
+    ]
+  },
+  {
+    "id": "tooth_41",
+    "fdi": "41",
+    "universal": "25 (LR1)",
+    "name": "Lower Right Central Incisor (#41)",
+    "latin": "Dens incisivus primus inferior dexter",
+    "fma": "FMA57142",
+    "bp": "BP5446",
+    "category": "Permanent Dentition (Mandibular Arch)",
+    "subgroup": "Q4 (Lower Right)",
+    "tooth_type": "Central Incisor",
+    "parent_bone": "mandible",
+    "roots": "Single Root (narrow, flattened mesiodistally)",
+    "color": "#faf8f2",
+    "description": "Right mandibular central incisor (FDI 41 / LR1). Smallest tooth in the arch with single slender root.",
+    "articulations": [
+      "Alveolus of Mandible",
+      "Central Incisor",
+      "Single Root (narrow, flattened mesiodistally)",
+      "Q4 (Lower Right)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 463,
+    "face_count": 920,
+    "centroid": [
+      -2.774,
+      -74.479,
+      51.998
+    ],
+    "bbox_min": [
+      -6.203,
+      -89.384,
+      42.172
+    ],
+    "bbox_max": [
+      -0.329,
+      -63.924,
+      60.408
+    ],
+    "explode_vector": [
+      -0.182,
+      -86.007,
+      7.013
+    ]
+  },
+  {
+    "id": "tooth_42",
+    "fdi": "42",
+    "universal": "26 (LR2)",
+    "name": "Lower Right Lateral Incisor (#42)",
+    "latin": "Dens incisivus secundus inferior dexter",
+    "fma": "FMA57140",
+    "bp": "BP5443",
+    "category": "Permanent Dentition (Mandibular Arch)",
+    "subgroup": "Q4 (Lower Right)",
+    "tooth_type": "Lateral Incisor",
+    "parent_bone": "mandible",
+    "roots": "Single Root",
+    "color": "#faf8f2",
+    "description": "Right mandibular lateral incisor (FDI 42 / LR2). Single root with distal developmental groove.",
+    "articulations": [
+      "Alveolus of Mandible",
+      "Lateral Incisor",
+      "Single Root",
+      "Q4 (Lower Right)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 486,
+    "face_count": 958,
+    "centroid": [
+      -7.446,
+      -73.9,
+      51.952
+    ],
+    "bbox_min": [
+      -12.194,
+      -89.104,
+      42.881
+    ],
+    "bbox_max": [
+      -4.345,
+      -63.964,
+      59.743
+    ],
+    "explode_vector": [
+      -0.182,
+      -86.007,
+      7.013
+    ]
+  },
+  {
+    "id": "tooth_43",
+    "fdi": "43",
+    "universal": "27 (LR3)",
+    "name": "Lower Right Canine (#43)",
+    "latin": "Dens caninus inferior dexter",
+    "fma": "FMA55686",
+    "bp": "BP5479",
+    "category": "Permanent Dentition (Mandibular Arch)",
+    "subgroup": "Q4 (Lower Right)",
+    "tooth_type": "Canine",
+    "parent_bone": "mandible",
+    "roots": "Single Root (long, stable mandibular anchor)",
+    "color": "#faf8f2",
+    "description": "Right mandibular canine (FDI 43 / LR3). Smooth continuous labial curve with single powerful root protecting occlusion.",
+    "articulations": [
+      "Alveolus of Mandible",
+      "Canine",
+      "Single Root (long, stable mandibular anchor)",
+      "Q4 (Lower Right)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 591,
+    "face_count": 1178,
+    "centroid": [
+      -12.463,
+      -74.971,
+      48.466
+    ],
+    "bbox_min": [
+      -17.121,
+      -90.334,
+      40.168
+    ],
+    "bbox_max": [
+      -8.496,
+      -63.504,
+      55.768
+    ],
+    "explode_vector": [
+      -0.182,
+      -86.007,
+      7.013
+    ]
+  },
+  {
+    "id": "tooth_44",
+    "fdi": "44",
+    "universal": "28 (LR4)",
+    "name": "Lower Right First Premolar (#44)",
+    "latin": "Dens praemolaris primus inferior dexter",
+    "fma": "FMA55694",
+    "bp": "BP5471",
+    "category": "Permanent Dentition (Mandibular Arch)",
+    "subgroup": "Q4 (Lower Right)",
+    "tooth_type": "First Premolar",
+    "parent_bone": "mandible",
+    "roots": "Single Root",
+    "color": "#faf8f2",
+    "description": "Right mandibular first premolar (FDI 44 / LR4). Prominent buccal cusp and small non-functional lingual cusp.",
+    "articulations": [
+      "Alveolus of Mandible",
+      "First Premolar",
+      "Single Root",
+      "Q4 (Lower Right)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 592,
+    "face_count": 1180,
+    "centroid": [
+      -17.255,
+      -72.788,
+      42.743
+    ],
+    "bbox_min": [
+      -21.281,
+      -85.414,
+      35.287
+    ],
+    "bbox_max": [
+      -13.336,
+      -62.894,
+      49.434
+    ],
+    "explode_vector": [
+      -0.182,
+      -86.007,
+      7.013
+    ]
+  },
+  {
+    "id": "tooth_45",
+    "fdi": "45",
+    "universal": "29 (LR5)",
+    "name": "Lower Right Second Premolar (#45)",
+    "latin": "Dens praemolaris secundus inferior dexter",
+    "fma": "FMA55695",
+    "bp": "BP5474",
+    "category": "Permanent Dentition (Mandibular Arch)",
+    "subgroup": "Q4 (Lower Right)",
+    "tooth_type": "Second Premolar",
+    "parent_bone": "mandible",
+    "roots": "Single Root",
+    "color": "#faf8f2",
+    "description": "Right mandibular second premolar (FDI 45 / LR5). Square occlusal table with single robust root.",
+    "articulations": [
+      "Alveolus of Mandible",
+      "Second Premolar",
+      "Single Root",
+      "Q4 (Lower Right)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 567,
+    "face_count": 1124,
+    "centroid": [
+      -20.952,
+      -71.253,
+      35.804
+    ],
+    "bbox_min": [
+      -24.506,
+      -85.024,
+      29.237
+    ],
+    "bbox_max": [
+      -16.392,
+      -61.664,
+      42.562
+    ],
+    "explode_vector": [
+      -0.182,
+      -86.007,
+      7.013
+    ]
+  },
+  {
+    "id": "tooth_46",
+    "fdi": "46",
+    "universal": "30 (LR6)",
+    "name": "Lower Right First Molar (#46)",
+    "latin": "Dens molaris primus inferior dexter",
+    "fma": "FMA55705",
+    "bp": "BP5461",
+    "category": "Permanent Dentition (Mandibular Arch)",
+    "subgroup": "Q4 (Lower Right)",
+    "tooth_type": "First Molar",
+    "parent_bone": "mandible",
+    "roots": "Two Roots (mesial & distal, broad buccolingually)",
+    "color": "#faf8f2",
+    "description": "Right mandibular first molar (FDI 46 / LR6). Five cusps and two broad roots. Master masticatory unit of the right dental arch.",
+    "articulations": [
+      "Alveolus of Mandible",
+      "First Molar",
+      "Two Roots (mesial & distal, broad buccolingually)",
+      "Q4 (Lower Right)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 889,
+    "face_count": 1762,
+    "centroid": [
+      -23.842,
+      -67.086,
+      28.039
+    ],
+    "bbox_min": [
+      -29.555,
+      -78.374,
+      20.876
+    ],
+    "bbox_max": [
+      -17.239,
+      -58.654,
+      35.987
+    ],
+    "explode_vector": [
+      -0.182,
+      -86.007,
+      7.013
+    ]
+  },
+  {
+    "id": "tooth_47",
+    "fdi": "47",
+    "universal": "31 (LR7)",
+    "name": "Lower Right Second Molar (#47)",
+    "latin": "Dens molaris secundus inferior dexter",
+    "fma": "FMA55706",
+    "bp": "BP5458",
+    "category": "Permanent Dentition (Mandibular Arch)",
+    "subgroup": "Q4 (Lower Right)",
+    "tooth_type": "Second Molar",
+    "parent_bone": "mandible",
+    "roots": "Two Roots (less divergent)",
+    "color": "#faf8f2",
+    "description": "Right mandibular second molar (FDI 47 / LR7). Four cusps divided by cruciate groove pattern with two parallel roots.",
+    "articulations": [
+      "Alveolus of Mandible",
+      "Second Molar",
+      "Two Roots (less divergent)",
+      "Q4 (Lower Right)"
+    ],
+    "is_anchor": false,
+    "is_tooth": true,
+    "vertex_count": 818,
+    "face_count": 1620,
+    "centroid": [
+      -27.576,
+      -63.245,
+      17.144
+    ],
+    "bbox_min": [
+      -32.948,
+      -72.994,
+      8.252
+    ],
+    "bbox_max": [
+      -20.876,
+      -54.314,
+      24.774
+    ],
+    "explode_vector": [
+      -0.182,
+      -86.007,
+      7.013
+    ]
+  }
+]

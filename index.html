@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Within · The Human Skull — Interactive 3D Anatomy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="dissecting">
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <a href="#" id="signature">Within <i>/</i> Human Atlas Nº 03</a>
+      <span class="edition">ANATOMICAL ATLAS <b>·</b> BEAUCHENE DISARTICULATION</span>
+    </div>
+    
+    <div class="header-center">
+      <div class="mode-switch">
+        <button id="mode-tour" data-mode="tour" aria-pressed="false">Guided tour</button>
+        <button id="mode-dissect" data-mode="dissect" aria-pressed="true" class="active">Dissect</button>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <button id="tree-toggle" aria-expanded="false">Layers & parts ☷</button>
+      <button id="display-toggle" aria-expanded="false">Display ◈</button>
+      <button id="notes-open">The Atlas ↗</button>
+    </div>
+  </header>
+
+  <!-- Brand Overlap -->
+  <div class="atlas-brand">
+    <span>● 3D CLINICAL ANATOMY</span>
+    <h1>Human Skull <small>Beauchene</small></h1>
+    <p>50 Articulated Structures · 22 Craniofacial Bones & 28 Permanent Teeth · BodyParts3D Atlas</p>
+  </div>
+
+  <!-- Main Viewport Canvas -->
+  <main id="stage">
+    <canvas id="canvas" aria-label="Interactive 3D Human Skull Atlas"></canvas>
+    
+    <!-- Loading Overlay -->
+    <div id="loading">
+      <div class="spinner"></div>
+      <p>Preparing skull & dentition meshes…</p>
+    </div>
+
+    <!-- Hero Caption -->
+    <div class="hero">
+      <p class="eyebrow">CRANIOFACIAL SKELETON & SECONDARY DENTITION</p>
+      <h1 id="headline">Architecture.<br><em>Of the human head.</em></h1>
+      <p id="subtitle">Sutures and alveolar sockets, disarticulated in space.</p>
+      <div class="small-stats"><span id="bone-count">50</span> STRUCTURES (22 BONES + 28 TEETH) <b>·</b> DRAG TO ORBIT</div>
+    </div>
+
+    <!-- View & Orbit Tools -->
+    <div class="view-tools">
+      <button id="tool-orbit" aria-pressed="false">Orbit ↻</button>
+      <button id="tool-wireframe" aria-pressed="false">Wireframe</button>
+      <button id="tool-xray" aria-pressed="false">Ghost / X-Ray</button>
+      <button id="tool-reset-cam">Reset View</button>
+    </div>
+
+    <!-- Copyright & Author Corner Badge -->
+    <aside class="atlas-credit-corner" aria-label="Author & Copyright Attribution">
+      <div class="credit-copyright">© DenMed AI</div>
+      <div class="credit-author">
+        <span class="author-name">Ameet Vaman Revankar</span>
+        <span class="credit-sep">·</span>
+        <a href="mailto:drameetr@gmail.com" class="credit-email" title="Email drameetr@gmail.com">drameetr@gmail.com</a>
+        <a href="https://www.linkedin.com/in/ameet-vaman-phd-314bbb94/" target="_blank" rel="noopener noreferrer" class="linkedin-badge" title="Connect with Ameet Vaman (PhD) on LinkedIn" aria-label="LinkedIn Profile">
+          <svg class="linkedin-svg" viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+          </svg>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Floating Structure Tree Panel -->
+    <section id="tree-panel" class="glass-panel" hidden aria-label="Structure tree">
+      <div class="panel-head">
+        <span>SYSTEMS, BONES & TEETH</span>
+        <button id="tree-close" aria-label="Close structure tree">×</button>
+      </div>
+      <div class="tree-summary">
+        <span id="scope-count">50 structures</span>
+        <span id="tree-visible">50 visible</span>
+      </div>
+      <div class="tree-actions">
+        <button id="show-all-bones">All</button>
+        <button id="filter-bones-only">Bones Only</button>
+        <button id="filter-teeth-only">Teeth Only</button>
+        <button id="hide-all-bones">Hide All</button>
+      </div>
+      <div id="tree-items">
+        <!-- Injected via JavaScript -->
+      </div>
+      <div class="opacity-row">
+        <label for="tree-opacity">Overall Opacity</label>
+        <output id="opacity-value">100%</output>
+        <input id="tree-opacity" type="range" min="10" max="100" value="100">
+      </div>
+    </section>
+
+    <!-- Floating Display / Section Plane Panel -->
+    <section id="display-panel" class="glass-panel" hidden aria-label="Visualization Settings">
+      <div class="panel-head">
+        <span>VISUALIZATION</span>
+        <button id="display-close" aria-label="Close display settings">×</button>
+      </div>
+      
+      <div class="display-group">
+        <label for="surface-mode">Surface Shading</label>
+        <select id="surface-mode">
+          <option value="bone" selected>Anatomical Bone Tint</option>
+          <option value="porcelain">Museum Porcelain</option>
+          <option value="wireframe">Technical Wireframe</option>
+          <option value="ghost">Ghost Translucent</option>
+        </select>
+      </div>
+
+      <div class="display-group">
+        <label for="clipping-mode">Anatomical Section Plane</label>
+        <select id="clipping-mode">
+          <option value="off" selected>Disabled (Solid)</option>
+          <option value="sagittal">Sagittal · Left / Right</option>
+          <option value="axial">Axial · Superior / Inferior</option>
+          <option value="coronal">Coronal · Anterior / Posterior</option>
+        </select>
+      </div>
+
+      <div class="display-group" id="clipping-slider-group" hidden>
+        <label for="clipping-position">Section Position</label>
+        <input id="clipping-position" type="range" min="-100" max="100" value="0">
+        <label class="checkbox-line">
+          <input id="clipping-invert" type="checkbox"> Invert Section Direction
+        </label>
+      </div>
+
+      <div class="display-actions">
+        <button id="save-image">↓ Export High-Res PNG</button>
+      </div>
+    </section>
+
+    <!-- Floating Detail HUD Card -->
+    <aside id="detail" class="glass-panel" hidden>
+      <button id="close-detail" aria-label="Close details">×</button>
+      <span class="detail-kicker" id="detail-category">NEUROCRANIUM</span>
+      <h2 id="detail-name">Sphenoid Bone</h2>
+      <div class="detail-badges">
+        <span class="badge" id="detail-latin">Os sphenoidale</span>
+        <span class="badge badge-fma" id="detail-fma">FMA52736</span>
+      </div>
+      <p id="detail-desc">Keystone bone of the cranial base.</p>
+      
+      <div class="detail-section">
+        <strong>Articulating Sutures & Neighbors:</strong>
+        <div id="detail-articulations" class="tag-cloud"></div>
+      </div>
+
+      <div class="detail-actions">
+        <button id="btn-focus">Focus ↗</button>
+        <button id="btn-isolate">Isolate Bone</button>
+        <button id="btn-hide">Hide</button>
+        <button id="btn-restore">Restore View</button>
+      </div>
+    </aside>
+
+    <!-- Camera Angles Toolbar -->
+    <div class="bottom-tools">
+      <div class="angles">
+        <button data-angle="perspective" class="active">Perspective</button>
+        <button data-angle="front">Front</button>
+        <button data-angle="side">Side</button>
+        <button data-angle="back">Back</button>
+        <button data-angle="top">Superior</button>
+        <button data-angle="base">Base</button>
+      </div>
+
+      <!-- Quick Search -->
+      <div class="search">
+        <label for="search-input">⌕</label>
+        <input id="search-input" placeholder="Search bones (e.g. Mandible, Sphenoid)…" autocomplete="off">
+        <div id="search-results" hidden></div>
+      </div>
+    </div>
+
+    <div class="gesture-hint">Drag to orbit · Scroll to zoom · Shift + scroll to explode · Click bone to inspect</div>
+    <div id="context-note">GROUND-TRUTH BODYPARTS3D GEOMETRY · SPHENOID ANCHOR ORIGIN</div>
+  </main>
+
+  <!-- Bottom Timeline / Disarticulation Controller -->
+  <footer>
+    <div class="timeline-top">
+      <span id="stage-caption">BEAUCHENE DISARTICULATION</span>
+      <div class="timeline-controls">
+        <button id="play-btn">▶ Play Exploration</button>
+        <button id="reset-btn">↺ Reset to Assembled</button>
+      </div>
+      <span id="percentage">00%</span>
+    </div>
+
+    <input id="depth-slider" aria-label="Explosion Depth" type="range" min="0" max="100" step="any" value="0">
+    
+    <nav class="depth-nav">
+      <button data-depth="0" class="active"><b>01</b> Assembled Skull</button>
+      <button data-depth="33"><b>02</b> Calvaria & Mandible</button>
+      <button data-depth="66"><b>03</b> Facial Skeleton</button>
+      <button data-depth="100"><b>04</b> Disarticulated Beauchene</button>
+    </nav>
+  </footer>
+
+  <!-- Modal Dialog: Notes & Provenance -->
+  <dialog id="notes-dialog" class="glass-panel">
+    <button id="notes-close">Close ×</button>
+    <p class="eyebrow">ANATOMICAL PROVENANCE & RIGOR</p>
+    <h2>Within · The Human Skull<br><em>An Interactive 3D Disarticulation Atlas</em></h2>
+    <p>This interactive atlas presents the 22 bones of the human skull in an anatomically authentic Beauchene preparation. Every mesh is derived directly from the **BodyParts3D** dataset created by the Database Center for Life Science (DBCLS) in Japan, mapped to Foundational Model of Anatomy (FMA) identifiers.</p>
+    
+    <h3>The Beauchene Disarticulation Model</h3>
+    <p>In classical anatomy, a Beauchene skull preserves the natural orientation and distance of each bone as if expanded outward from the central sphenoid core. This allows students, surgeons, and orthodontists to inspect internal articular facets, the sella turcica, pterygopalatine fossa, and cranial foramina without loss of spatial context.</p>
+
+    <h3>Dataset Details</h3>
+    <ul>
+      <li><strong>Total Meshes:</strong> 22 individually segmented bones (Neurocranium & Viscerocranium).</li>
+      <li><strong>Coordinate Alignment:</strong> Native shared coordinate frame (sub-millimeter bilateral symmetry).</li>
+      <li><strong>Origin Anchor:</strong> Sphenoid bone centroid at $[0, 0, 0]$.</li>
+      <li><strong>Source:</strong> BodyParts3D 4.0 (CC BY-SA 2.1 Japan).</li>
+    </ul>
+
+    <p class="credit">Developed for Professor Ameet Revankar · AI-SOC Clinical Paradigm.</p>
+  </dialog>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

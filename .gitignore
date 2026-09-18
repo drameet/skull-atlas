@@ -11,6 +11,9 @@ isa_BP3D_4.0_obj_99/
 # Scratch scripts
 scratch/
 
+# Standalone physiology repository
+physiology/
+
 # OS / Editor files
 .DS_Store
 Thumbs.db

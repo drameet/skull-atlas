@@ -137,4 +137,37 @@ Create `.github/workflows/deploy.yml`:
 
 ---
 
+## 6. Guided Tour Architecture & Implementation (8 Clinical Chapters)
+- **Problem Resolved:** The "Guided tour" button in the header was dormant without active event binding or tour state.
+- **Architectural Solution:**
+  - Implemented an interactive 8-chapter museum walkthrough system (`TOUR_CHAPTERS` in `main.js`).
+  - Added the glassmorphic `#tour-card` HUD featuring step pulse indicators (`CHAPTER 01 / 08`), smooth progress bars, anatomical kicking titles, clinical rationale, clickable featured structure tags, chapter jumping dots, auto-play with loop/pause timer, and bidirectional chapter stepping.
+  - Seamless integration with Three.js camera tweening, disarticulation depth synchronization, and dynamic structure spotlighting (warm radiant emissive glow on featured bones while subtly dimming adjacent structures).
+  - Mode switcher toggles between Dissect mode (free exploration) and Guided Tour mode cleanly with body class state management (`body.touring` vs `body.dissecting`).
+  - **Closure Specificity Fix:** Enforced global `[hidden] { display: none !important; }`, `#tour-card[hidden] { display: none !important; }`, and inline `style.display = 'none'` upon `exitTour()` to prevent CSS ID selector specificity from overriding the `hidden` attribute. Closed state verified via browser automation.
+  - **LHS Structure Tree Restoration:** Enabled default open visibility for the LHS bone menu (`#tree-panel`, "SYSTEMS, BONES & TEETH") in Dissect mode with active header button (`#tree-toggle`, "Layers & parts ☷"). Configured clean mutual coexistence where entering Guided Tour hides the bone tree in favor of `#tour-card`, and returning to Dissect mode restores the bone tree on the LHS immediately.
+  - **High-Res Snapshot Export Pipeline & Direct Disk Persistence (2560×1440 QHD):**
+    - Addressed browser download sandbox drops where synthetic `a.click()` on short-lived blob URLs failed to persist to disk without user confirmation.
+    - Built the **Snapshot Preview Modal (`#snapshot-dialog`)** displaying the generated 2.5K image preview, format specifications (`32-Bit Lossless PNG`, `2560 × 1440 px`, `Lossless Antialiased`), and three instant action buttons:
+      1. `⬇ Download PNG File`: Direct user-clickable download link immune to browser popup/download blocking.
+      2. `📋 Copy to Clipboard`: 1-click clipboard writing via `navigator.clipboard.write([new ClipboardItem({'image/png': blob})])` for instant pasting into PowerPoint/Word.
+      3. `↗ View Full Size`: Opens the lossless QHD render in a new browser tab.
+    - Integrated a local dev server persistence endpoint (`POST /api/save-snapshot` in `vite.config.js`) that automatically saves every rendered snapshot directly to the project workspace disk under `d:\partof_BP3D_4.0_obj_99\exports\Within_The_Human_Skull_Beauchene_<date>_<time>.png` (~2.84 MB).
+    - Added 1-click access button `Snapshot 📷` (`#tool-snapshot`) directly on the main viewport `.view-tools` bar.
+
+## 7. Sister Application: Stomatognathic Physiology 3D WebGL Lab
+- **Repository:** [https://github.com/drameet/stomatognathic-physiology](https://github.com/drameet/stomatognathic-physiology)
+- **Live Production URL:** [https://drameet.github.io/stomatognathic-physiology/](https://drameet.github.io/stomatognathic-physiology/)
+- **Summary of Advances:**
+  - Independent, dedicated GitHub Pages deployment with automated GitHub Actions CI/CD.
+  - Interactive craniomandibular biomechanics coupling BodyParts3D v4.0 skeletal frames with validated ground truth from Hannam & Stavness (ArtiSynth / SimTK Dynamic Jaw Model).
+  - 3D Posselt Envelope of Motion tracking incisal apex boundaries (Centric Relation, Habitual Occlusion, Maximum Opening, Protrusion, Left Lateral `pLL`, Right Lateral `pRL`).
+  - Functional Occlusal Clench guidance presets (Incisal edge-to-edge, L-Canine, R-Canine, L-Molar, R-Molar) with real-time Class III lever mechanical advantage solving and bilateral TMJ compressive reaction vectors.
+  - Multi-device responsive design supporting full desktop, iOS Safari touch gestures (`touch-action: none`, `TOUCH.ROTATE`, `TOUCH.DOLLY_PAN`), and Android Chrome viewports.
+  - Author attribution integration with direct email (`mailto:drameetr@gmail.com`), official high-contrast LinkedIn badge, and WhatsApp community button.
+  - Packaged 7.5s high-density demonstration video with synthesized ambient instrumental soundtrack (`stomatognathic_physiology_demo.mp4`) optimized for LinkedIn feed engagement algorithms.
+
+---
+
 *For Professor Revankar's Clinical Validation.*
+

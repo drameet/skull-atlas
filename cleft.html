@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cleft Craniofacial Explorer — Berkowitz Physiology &amp; Beauchene Disarticulation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/cleft.css">
+</head>
+<body class="cleft-app">
+  <!-- Top Navigation Bar -->
+  <header class="app-header">
+    <div class="header-brand">
+      <span class="brand-title">Cleft Craniofacial Explorer</span>
+      <span class="brand-subtitle">Berkowitz Disarticulation &amp; SABG Simulation</span>
+      <span class="brand-badge">Case CL-01 · 0.375mm High-Res</span>
+    </div>
+
+    <!-- Clinical Stage Switcher -->
+    <div class="stage-pills" id="stage-pills">
+      <button class="stage-btn active" data-stage="pre_op">Pre-Op Anatomy</button>
+      <button class="stage-btn" data-stage="berkowitz_vectors">Muscular Sling</button>
+      <button class="stage-btn" data-stage="exploded">Disarticulation</button>
+      <button class="stage-btn" data-stage="graft_infill">SABG Simulation</button>
+      <button class="stage-btn" data-stage="alt_ramec">Alt-RAMEC &amp; Facemask</button>
+    </div>
+
+    <!-- Top Tools & Panel Toggles -->
+    <div class="header-actions">
+      <div class="quick-tools">
+        <button id="tool-color-mode" class="tool-btn" title="Toggle Diagnostic vs Natural Bone Material">Palette: Diagnostic ◈</button>
+        <button id="tool-wireframe" class="tool-btn" title="Toggle Wireframe View">Wireframe</button>
+        <button id="tool-xray" class="tool-btn" title="Toggle Ghost / X-Ray Mode">X-Ray</button>
+        <button id="tool-reset-cam" class="tool-btn" title="Reset Camera View">Reset ⊙</button>
+      </div>
+
+      <div class="panel-toggles">
+        <button id="toggle-telemetry-btn" class="action-btn active" title="Toggle Telemetry HUD">Telemetry ◫</button>
+        <button id="toggle-tree-btn" class="action-btn active" title="Toggle Structure Tree">Layers &amp; Parts ☷</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Full-Viewport Stage -->
+  <main class="viewport-stage" id="stage-container">
+    <canvas id="canvas-3d"></canvas>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+      <div class="loading-spinner"></div>
+      <p id="loading-text">Loading patient craniofacial architecture…</p>
+      <div class="loading-progress-bar">
+        <div class="loading-progress-fill" id="loading-progress"></div>
+      </div>
+    </div>
+
+    <!-- Floating Left: Surgical Telemetry HUD Deck -->
+    <aside class="hud-deck" id="hud-deck">
+      <div class="hud-header">
+        <div class="hud-tag">Berkowitz Cleft Mechanics</div>
+        <h2 class="hud-title">Unilateral Complete Cleft (Alveolar &amp; Palatal)</h2>
+      </div>
+
+      <!-- Telemetry Data Cards -->
+      <div class="telemetry-grid">
+        <div class="telem-card">
+          <span class="telem-label">Defect Void Volume:</span>
+          <span class="telem-val telem-amber" id="telem-defect-vol">1.72 cm³</span>
+        </div>
+        <div class="telem-card">
+          <span class="telem-label">Target Harvest (+30%):</span>
+          <span class="telem-val telem-green" id="telem-harvest-range">2.20 – 2.35 cm³</span>
+        </div>
+        <div class="telem-card telem-full">
+          <span class="telem-label">Flanking Canine Eruption:</span>
+          <span class="telem-val telem-cyan">Tooth 23 Obstructed (Grade II)</span>
+        </div>
+      </div>
+
+      <!-- Virtual Peeling Sliders -->
+      <div class="hud-section-title">Virtual Peeling</div>
+      <div class="slider-group">
+        <div class="slider-header">
+          <span>Cutaneous Facial Drape</span>
+          <span class="slider-val" id="skin-opacity-label">25%</span>
+        </div>
+        <input type="range" id="skin-opacity-slider" min="0" max="100" value="25" class="range-slider accent-skin">
+      </div>
+
+      <div class="slider-group">
+        <div class="slider-header">
+          <span>Craniofacial Skeleton</span>
+          <span class="slider-val" id="bone-opacity-label">90%</span>
+        </div>
+        <input type="range" id="bone-opacity-slider" min="10" max="100" value="90" class="range-slider accent-bone">
+      </div>
+
+      <!-- Berkowitz Muscular Vectors Legend (Visible when active) -->
+      <div id="vector-legend" class="vector-legend hidden">
+        <div class="hud-section-title">Aberrant Muscular Slings</div>
+        <ul class="vector-list">
+          <li class="vector-item"><span class="vector-dot" style="background:#f43f5e"></span> <b>Cleft Orbicularis:</b> Alar base pull (12 N)</li>
+          <li class="vector-item"><span class="vector-dot" style="background:#06b6d4"></span> <b>Non-Cleft Orbicularis:</b> Septal deviation (18 N)</li>
+          <li class="vector-item"><span class="vector-dot" style="background:#10b981"></span> <b>Septopremaxillary:</b> Forward vomer push (15 N)</li>
+          <li class="vector-item"><span class="vector-dot" style="background:#fbbf24"></span> <b>Buccinator:</b> Lesser shelf collapse (10 N)</li>
+          <li class="vector-item"><span class="vector-dot" style="background:#a855f7"></span> <b>Levator Palatini:</b> Longitudinal velar insertion (8 N)</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Floating Right: Structure Tree Panel (Beauchene Style) -->
+    <section class="tree-panel glass-panel" id="tree-panel">
+      <div class="panel-head">
+        <span class="panel-head-title">DISARTICULATED ANATOMY</span>
+        <div class="panel-head-controls">
+          <span class="tree-badge" id="visible-count">9 / 9 Active</span>
+          <button id="tree-close-btn" class="icon-close" title="Close Panel">×</button>
+        </div>
+      </div>
+
+      <div class="tree-actions">
+        <button id="filter-all" class="filter-chip active">All</button>
+        <button id="filter-maxilla" class="filter-chip">Cleft Segments</button>
+        <button id="filter-teeth" class="filter-chip">Dentition</button>
+        <button id="btn-reset-isolation" class="filter-chip">Reset Solo</button>
+      </div>
+
+      <div class="tree-items" id="tree-items-container">
+        <!-- Dynamically injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Floating Raycast Anatomical Inspector Card -->
+    <div class="inspector-card glass-panel hidden" id="inspector-card">
+      <div class="inspector-header">
+        <div class="inspector-title-row">
+          <span class="inspector-color-dot" id="insp-color-dot"></span>
+          <div>
+            <h3 class="inspector-name" id="insp-name">Greater Maxillary Segment</h3>
+            <span class="inspector-latin" id="insp-latin">Segmentum Maxillare Majus</span>
+          </div>
+        </div>
+        <button id="inspector-close-btn" class="inspector-close" title="Close">×</button>
+      </div>
+
+      <div class="inspector-body">
+        <div class="inspector-section">
+          <div class="insp-section-title">Berkowitz Morphology &amp; Growth</div>
+          <p class="insp-desc" id="insp-morphology"></p>
+        </div>
+
+        <div class="inspector-section">
+          <div class="insp-section-title">Clinical &amp; SABG Significance</div>
+          <p class="insp-desc" id="insp-clinical"></p>
+        </div>
+
+        <div class="inspector-metrics-grid">
+          <div class="insp-metric">
+            <span class="insp-label">Volume:</span>
+            <span class="insp-value" id="insp-vol">11.8 cm³</span>
+          </div>
+          <div class="insp-metric">
+            <span class="insp-label">Cortical Plate:</span>
+            <span class="insp-value" id="insp-cortical">1.6 – 2.4 mm</span>
+          </div>
+        </div>
+
+        <div class="inspector-footer">
+          <button id="btn-isolate-current" class="insp-action-btn">Isolate Segment</button>
+          <button id="btn-focus-current" class="insp-action-btn secondary">Focus Camera</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Center: Beauchene Disarticulation Dock -->
+    <div class="disarticulation-dock glass-panel" id="disarticulation-dock">
+      <div class="dock-header">
+        <div class="dock-title-group">
+          <span class="dock-label">Beauchene Disarticulation</span>
+          <span class="dock-val-badge" id="explode-percent-badge">0%</span>
+        </div>
+        <div class="dock-presets">
+          <button class="dock-preset-btn active" data-explode="0">Articulated (0%)</button>
+          <button class="dock-preset-btn" data-explode="50">Intermediate (50%)</button>
+          <button class="dock-preset-btn" data-explode="100">Disarticulated (100%)</button>
+        </div>
+      </div>
+      
+      <div class="dock-slider-row">
+        <span class="dock-slider-sub">In Situ</span>
+        <input type="range" id="slider-explode" min="0" max="100" value="0" class="range-slider dock-slider">
+        <span class="dock-slider-sub">Exploded</span>
+      </div>
+    </div>
+
+    <!-- Bottom Center: SABG Surgical Simulator Suite Dock -->
+    <div class="sabg-dock glass-panel hidden" id="sabg-dock">
+      <div class="sabg-dock-header">
+        <div class="sabg-title-group">
+          <span class="sabg-badge-pulse">● LIVE SABG</span>
+          <span class="sabg-dock-title">Alveolar Bone Grafting (SABG) Simulator</span>
+          <span class="sabg-source-badge" id="sabg-active-source-badge">Iliac Crest (+30%)</span>
+        </div>
+        <div class="sabg-cam-shortcuts">
+          <button id="btn-sabg-cam-cleft" class="sabg-cam-btn" title="Focus Cleft Bed">Cleft Bed ⊙</button>
+          <button id="btn-sabg-cam-occlusal" class="sabg-cam-btn" title="Occlusal Palatal View">Occlusal ◵</button>
+          <button id="btn-sabg-cam-canine" class="sabg-cam-btn" title="Canine Eruption Corridor View">Canine Corridor ☩</button>
+        </div>
+      </div>
+
+      <!-- SABG Phase Tabs -->
+      <div class="sabg-phase-tabs">
+        <button class="sabg-tab-btn active" data-tab="packing">1. Autologous Bone Infill</button>
+        <button class="sabg-tab-btn" data-tab="timeline">2. Healing &amp; Consolidation</button>
+        <button class="sabg-tab-btn" data-tab="canine">3. Canine Tooth 23 Eruption</button>
+      </div>
+
+      <!-- Tab 1: Bone Packing & Harvest Selection -->
+      <div class="sabg-tab-content active" id="sabg-tab-packing">
+        <div class="sabg-row-sources">
+          <span class="sabg-field-label">Donor Harvest Source:</span>
+          <div class="sabg-source-chips">
+            <button class="source-chip active" data-source="iliac">Anterior Iliac Crest (Gold Standard)</button>
+            <button class="source-chip" data-source="symphysis">Mandibular Symphysis (Intraoral)</button>
+            <button class="source-chip" data-source="bmp2">rhBMP-2 Bio-Composite</button>
+          </div>
+        </div>
+
+        <div class="sabg-slider-block">
+          <div class="sabg-slider-header">
+            <span>Cleft Defect Packing Density &amp; Overfill:</span>
+            <div class="sabg-pack-metrics">
+              <span class="sabg-metric-highlight" id="sabg-vol-display">2.24 cm³</span>
+              <span class="sabg-status-pill" id="sabg-pack-status">+30% Physiological Overfill</span>
+            </div>
+          </div>
+          <div class="sabg-slider-wrapper">
+            <span class="dock-slider-sub">0% (Void)</span>
+            <input type="range" id="slider-packing" min="0" max="130" value="130" class="range-slider dock-slider accent-rose">
+            <span class="dock-slider-sub">130% (+30% Overfill)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Healing & Remodeling Timeline -->
+      <div class="sabg-tab-content" id="sabg-tab-timeline">
+        <div class="sabg-timeline-btns">
+          <button class="timeline-step-btn" data-step="day0">Day 0 Post-Op</button>
+          <button class="timeline-step-btn" data-step="month3">3 Months</button>
+          <button class="timeline-step-btn active" data-step="month6">6 Months (Bridge)</button>
+          <button class="timeline-step-btn" data-step="month12">12 Months (Mature)</button>
+        </div>
+
+        <div class="sabg-timeline-metrics-grid">
+          <div class="sabg-card">
+            <span class="sabg-card-lbl">Remodeled Volume:</span>
+            <span class="sabg-card-val telem-cyan" id="sabg-remodeled-vol">1.79 cm³</span>
+          </div>
+          <div class="sabg-card">
+            <span class="sabg-card-lbl">Bone Mineral Density:</span>
+            <span class="sabg-card-val telem-amber" id="sabg-density-display">750 – 950 HU (Lamellar)</span>
+          </div>
+          <div class="sabg-card">
+            <span class="sabg-card-lbl">Bergland Scale Rating:</span>
+            <span class="sabg-card-val telem-green" id="sabg-bergland-display">Bergland Type I (&gt;75% Crest)</span>
+          </div>
+        </div>
+        <p class="sabg-timeline-desc" id="sabg-timeline-notes">Mature lamellar bone replacing provisional callus. Continuous cortical plate formed along the alveolar ridge and nasal floor.</p>
+      </div>
+
+      <!-- Tab 3: Canine Tooth 23 Eruption Corridor -->
+      <div class="sabg-tab-content" id="sabg-tab-canine">
+        <div class="sabg-canine-header">
+          <div class="sabg-canine-title">
+            <span>Tooth 23 (Cleft Canine) Eruption Path</span>
+            <span class="sabg-canine-badge" id="sabg-canine-badge">Trajectory: Active</span>
+          </div>
+          <button id="btn-auto-erupt" class="sabg-play-btn">▶ Auto-Erupt Tooth 23</button>
+        </div>
+
+        <div class="sabg-slider-wrapper">
+          <span class="dock-slider-sub">Impacted (0%)</span>
+          <input type="range" id="slider-canine-eruption" min="0" max="100" value="0" class="range-slider dock-slider accent-bone">
+          <span class="dock-slider-sub">Erupted into Arch (100%)</span>
+        </div>
+
+        <div class="sabg-canine-outcome-box">
+          <span class="sabg-outcome-title">Orthodontic Outcome &amp; Periodontal Patency:</span>
+          <span class="sabg-outcome-desc" id="sabg-canine-desc">Tooth 23 descends 11mm through newly consolidated cancellous bridge into functional arch alignment with intact keratinized gingiva and normal PDL space (Bergland Type I / Chelsea Category A).</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Center: Alt-RAMEC & Petit Reverse-Pull Facemask Dock -->
+    <div class="altramec-dock glass-panel hidden" id="altramec-dock">
+      <div class="altramec-dock-header">
+        <div class="altramec-title-group">
+          <span class="altramec-badge-pulse">● ALT-RAMEC &amp; FACEMASK</span>
+          <span class="altramec-dock-title">Liou Alt-RAMEC &amp; Maxillary Protraction Suite</span>
+          <span class="altramec-cycle-badge" id="altramec-active-cycle-badge">Week 1: Expansion (+7mm)</span>
+        </div>
+        <div class="altramec-cam-shortcuts">
+          <button id="btn-cam-facemask" class="altramec-cam-btn" title="Facemask Profile View">Facemask Profile ☩</button>
+          <button id="btn-cam-expander" class="altramec-cam-btn" title="Intraoral Hyrax Expander">Palatal Hyrax ⊙</button>
+          <button id="btn-cam-sutures" class="altramec-cam-btn" title="Circummaxillary Sutures">Suture Buttress ◵</button>
+        </div>
+      </div>
+
+      <!-- Alt-RAMEC Phase Tabs -->
+      <div class="altramec-phase-tabs">
+        <button class="altramec-tab-btn active" data-tab="protocol">1. Liou Weekly Protocol</button>
+        <button class="altramec-tab-btn" data-tab="sutures">2. Suture Disarticulation Matrix</button>
+        <button class="altramec-tab-btn" data-tab="protraction">3. Reverse-Pull Protraction</button>
+      </div>
+
+      <!-- Tab 1: Liou Weekly Expansion & Constriction Protocol -->
+      <div class="altramec-tab-content active" id="altramec-tab-protocol">
+        <div class="altramec-week-pills">
+          <button class="altramec-week-btn active" data-week="1">W1: Exp (+7mm)</button>
+          <button class="altramec-week-btn" data-week="2">W2: Const (-7mm)</button>
+          <button class="altramec-week-btn" data-week="3">W3: Exp (+7mm)</button>
+          <button class="altramec-week-btn" data-week="4">W4: Const (-7mm)</button>
+          <button class="altramec-week-btn" data-week="5">W5+: Protraction</button>
+        </div>
+
+        <div class="altramec-slider-block">
+          <div class="altramec-slider-header">
+            <span>Hyrax Jackscrew Transverse Activation:</span>
+            <div class="altramec-pack-metrics">
+              <span class="altramec-metric-highlight" id="altramec-screw-width">+7.0 mm</span>
+              <span class="altramec-status-pill" id="altramec-mode-display">Rapid Expansion Mode</span>
+            </div>
+          </div>
+          <div class="altramec-slider-wrapper">
+            <span class="dock-slider-sub">0.0 mm (Neutral)</span>
+            <input type="range" id="slider-altramec-width" min="0" max="80" value="70" class="range-slider dock-slider accent-cyan">
+            <span class="dock-slider-sub">+8.0 mm (Expanded)</span>
+          </div>
+        </div>
+
+        <p class="altramec-protocol-desc" id="altramec-cycle-notes">Initial rapid transverse expansion uncouples the midpalatal seam and strains the rigid pterygomaxillary junction.</p>
+      </div>
+
+      <!-- Tab 2: Circummaxillary Suture Disarticulation Matrix -->
+      <div class="altramec-tab-content" id="altramec-tab-sutures">
+        <div class="suture-matrix-grid">
+          <div class="suture-card">
+            <span class="suture-card-name">Pterygomaxillary</span>
+            <span class="suture-card-role">Posterior Buttress</span>
+            <span class="suture-card-status telem-green" id="suture-stat-pterygo">Uncoupled (Disarticulated)</span>
+          </div>
+          <div class="suture-card">
+            <span class="suture-card-name">Zygomaticomaxillary</span>
+            <span class="suture-card-role">Midfacial Buttress</span>
+            <span class="suture-card-status telem-green" id="suture-stat-zygomax">Disarticulated</span>
+          </div>
+          <div class="suture-card">
+            <span class="suture-card-name">Zygomaticotemporal</span>
+            <span class="suture-card-role">Lateral Arch</span>
+            <span class="suture-card-status telem-green" id="suture-stat-zygotemp">Disarticulated</span>
+          </div>
+          <div class="suture-card">
+            <span class="suture-card-name">Frontomaxillary</span>
+            <span class="suture-card-role">Superior Pivot</span>
+            <span class="suture-card-status telem-cyan" id="suture-stat-frontomax">Patent Hinge</span>
+          </div>
+          <div class="suture-card">
+            <span class="suture-card-name">Transverse Palatal</span>
+            <span class="suture-card-role">Palatine Junction</span>
+            <span class="suture-card-status telem-green" id="suture-stat-transpal">Mobilized</span>
+          </div>
+        </div>
+        <div class="suture-telemetry-row">
+          <span class="suture-telem-lbl">Suture Biomechanical Mobility Index:</span>
+          <span class="suture-telem-val telem-green">100% Hypermobile (Prime for Forward Traction)</span>
+        </div>
+      </div>
+
+      <!-- Tab 3: Reverse-Pull Facemask & Skeletal Advancement -->
+      <div class="altramec-tab-content" id="altramec-tab-protraction">
+        <div class="protract-controls-row">
+          <div class="protract-slider-group">
+            <div class="slider-header-sm">
+              <span>Elastic Traction Force:</span>
+              <span class="sm-highlight" id="protract-force-val">450 g / side (900 g Total)</span>
+            </div>
+            <input type="range" id="slider-protract-force" min="300" max="500" value="450" class="range-slider dock-slider accent-amber">
+          </div>
+
+          <div class="protract-slider-group">
+            <div class="slider-header-sm">
+              <span>Skeletal Le Fort I Advancement:</span>
+              <span class="sm-highlight telem-cyan" id="protract-advancement-val">+3.8 mm</span>
+            </div>
+            <input type="range" id="slider-maxilla-advancement" min="0" max="45" value="38" class="range-slider dock-slider accent-green">
+          </div>
+        </div>
+
+        <div class="protract-action-bar">
+          <button id="btn-auto-protract" class="protract-play-btn">▶ Auto-Simulate Protraction</button>
+          <div class="protract-metrics-badge">
+            <span>A-Point Shift: <b>+3.5 mm</b></span>
+            <span>Overjet: <b>+2.5 mm</b></span>
+            <span>Alar Base Elevation: <b>Symmetric</b></span>
+          </div>
+        </div>
+
+        <p class="altramec-protocol-desc">Extraoral elastics pull the mobilized maxillary segments forward and downward 25° to the occlusal plane, achieving orthopedic Le Fort I skeletal advancement and correcting the anterior crossbite.</p>
+      </div>
+    </div>
+
+    <!-- Viewport Hint -->
+    <div class="viewport-hint">
+      <span>☩ Drag to orbit · Scroll to zoom · Click any bone or tooth for Berkowitz clinical dossier</span>
+    </div>
+  </main>
+
+  <script type="module" src="/src/cleft.js"></script>
+</body>
+</html>

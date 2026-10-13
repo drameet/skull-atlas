@@ -25,7 +25,7 @@
     </div>
 
     <div class="header-right">
-      <button id="tree-toggle" aria-expanded="false">Layers & parts ☷</button>
+      <button id="tree-toggle" class="active" aria-expanded="true">Layers & parts ☷</button>
       <button id="display-toggle" aria-expanded="false">Display ◈</button>
       <button id="notes-open">The Atlas ↗</button>
     </div>
@@ -61,6 +61,7 @@
       <button id="tool-orbit" aria-pressed="false">Orbit ↻</button>
       <button id="tool-wireframe" aria-pressed="false">Wireframe</button>
       <button id="tool-xray" aria-pressed="false">Ghost / X-Ray</button>
+      <button id="tool-snapshot" aria-label="Export high-resolution snapshot">Snapshot 📷</button>
       <button id="tool-reset-cam">Reset View</button>
     </div>
 
@@ -80,7 +81,7 @@
     </aside>
 
     <!-- Floating Structure Tree Panel -->
-    <section id="tree-panel" class="glass-panel" hidden aria-label="Structure tree">
+    <section id="tree-panel" class="glass-panel" aria-label="Structure tree">
       <div class="panel-head">
         <span>SYSTEMS, BONES & TEETH</span>
         <button id="tree-close" aria-label="Close structure tree">×</button>
@@ -144,6 +145,42 @@
         <button id="save-image">↓ Export High-Res PNG</button>
       </div>
     </section>
+
+    <!-- Floating Guided Tour HUD Card -->
+    <aside id="tour-card" class="glass-panel tour-card" hidden aria-label="Guided Tour Controls">
+      <div class="tour-header">
+        <div class="tour-step-badge">
+          <span class="tour-pulse"></span>
+          <span id="tour-step-num">CHAPTER 01 / 08</span>
+        </div>
+        <button id="tour-exit" class="tour-close-btn" aria-label="Exit Guided Tour" title="Exit to Dissect Mode">×</button>
+      </div>
+
+      <div class="tour-progress-bar">
+        <div id="tour-progress-fill" class="tour-progress-fill"></div>
+      </div>
+
+      <div class="tour-content">
+        <span class="tour-kicker" id="tour-chapter-subtitle">BEAUCHENE DISARTICULATION</span>
+        <h2 id="tour-chapter-title">The Complete Cranium</h2>
+        <p id="tour-chapter-desc">Exploring the 50 articulated structures of the human skull...</p>
+        
+        <div class="tour-tags" id="tour-chapter-tags">
+          <!-- Dynamically populated badges of featured bones/teeth -->
+        </div>
+      </div>
+
+      <div class="tour-footer">
+        <div class="tour-nav-controls">
+          <button id="tour-prev-btn" class="tour-btn secondary" title="Previous chapter">← Prev</button>
+          <button id="tour-autoplay-btn" class="tour-btn highlight" title="Autoplay walkthrough">▶ Play</button>
+          <button id="tour-next-btn" class="tour-btn primary" title="Next chapter">Next →</button>
+        </div>
+        <div class="tour-dots" id="tour-dots">
+          <!-- 8 clickable indicator dots -->
+        </div>
+      </div>
+    </aside>
 
     <!-- Floating Detail HUD Card -->
     <aside id="detail" class="glass-panel" hidden>
@@ -232,6 +269,48 @@
     </ul>
 
     <p class="credit">Developed for Professor Ameet Revankar · AI-SOC Clinical Paradigm.</p>
+  </dialog>
+
+  <!-- Modal Dialog: High-Res Snapshot Preview & Direct Download -->
+  <dialog id="snapshot-dialog" class="glass-panel snapshot-dialog" aria-label="High Resolution Snapshot Export">
+    <div class="snapshot-header">
+      <div class="snapshot-badge">
+        <span class="badge-dot"></span>
+        <span>HIGH-RESOLUTION 2.5K EXPORT · 2560 × 1440 QHD</span>
+      </div>
+      <button id="snapshot-close" class="dialog-close-btn" aria-label="Close export dialog">×</button>
+    </div>
+
+    <div class="snapshot-preview-frame">
+      <img id="snapshot-img" alt="Rendered High-Res Snapshot Preview" />
+      <div id="snapshot-spinner" class="snapshot-loading" hidden>
+        <div class="spinner"></div>
+        <p>Rendering 2.5K Museum Canvas…</p>
+      </div>
+    </div>
+
+    <div class="snapshot-disk-notice" id="snapshot-disk-notice">
+      <span class="disk-icon">💾</span>
+      <span id="snapshot-disk-path">Saved to disk: exports/Within_Skull_Beauchene.png</span>
+    </div>
+
+    <div class="snapshot-meta">
+      <span class="meta-item"><b>Format:</b> 32-Bit Lossless PNG</span>
+      <span class="meta-item"><b>Canvas:</b> 2560 × 1440 px</span>
+      <span class="meta-item"><b>Quality:</b> Lossless Antialiased</span>
+    </div>
+
+    <div class="snapshot-actions">
+      <a id="snapshot-download-link" class="snapshot-btn primary" download="Within_Human_Skull_Beauchene.png" href="#">
+        ⬇ Download PNG File
+      </a>
+      <button id="snapshot-copy-btn" class="snapshot-btn secondary">
+        📋 Copy to Clipboard
+      </button>
+      <a id="snapshot-tab-link" class="snapshot-btn ghost" target="_blank" rel="noopener noreferrer" href="#">
+        ↗ View Full Size
+      </a>
+    </div>
   </dialog>
 
   <script type="module" src="/src/main.js"></script>

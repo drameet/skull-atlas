@@ -1,0 +1,102 @@
+{
+  "dimensions": [
+    256,
+    256,
+    270
+  ],
+  "raw_dimensions": [
+    512,
+    512,
+    270
+  ],
+  "spacing": [
+    0.375,
+    0.375,
+    0.625
+  ],
+  "cleft": {
+    "title": "Patient-Specific Cleft Craniofacial Explorer (SABG Planning)",
+    "defectVolumeCm3": 1.44,
+    "suggestedGraftRangeCm3": [
+      1.8,
+      1.94
+    ],
+    "landmarks": {
+      "nasalFloorSlice": 129,
+      "midDefectSlice": 108,
+      "alveolarCrestSlice": 86
+    }
+  },
+  "structures": [
+    {
+      "id": "skin",
+      "name": "Soft-Tissue Drape",
+      "file": "skin.glb",
+      "color": "#e0b89b",
+      "opacity": 0.35
+    },
+    {
+      "id": "cranial_vault",
+      "name": "Cranial Base & Skull",
+      "file": "cranial_vault.glb",
+      "color": "#ede7d8",
+      "opacity": 0.85
+    },
+    {
+      "id": "greater_maxilla",
+      "name": "Greater Maxillary Segment",
+      "file": "greater_maxilla.glb",
+      "color": "#38bdf8",
+      "opacity": 0.90
+    },
+    {
+      "id": "lesser_maxilla",
+      "name": "Lesser Maxillary Segment",
+      "file": "lesser_maxilla.glb",
+      "color": "#fb923c",
+      "opacity": 0.90
+    },
+    {
+      "id": "zygomatic_complex",
+      "name": "Zygomatic Process & Arches",
+      "file": "zygomatic_complex.glb",
+      "color": "#34d399",
+      "opacity": 0.90
+    },
+    {
+      "id": "mandible",
+      "name": "Mandible",
+      "file": "mandible.glb",
+      "color": "#d8b4fe",
+      "opacity": 0.85
+    },
+    {
+      "id": "upper_teeth",
+      "name": "Upper Dentition",
+      "file": "upper_teeth.glb",
+      "color": "#fef08a",
+      "opacity": 1.0
+    },
+    {
+      "id": "lower_teeth",
+      "name": "Lower Dentition",
+      "file": "lower_teeth.glb",
+      "color": "#fef9c3",
+      "opacity": 1.0
+    },
+    {
+      "id": "mandibular_canal",
+      "name": "Mandibular Canal (IAN)",
+      "file": "mandibular_canal.glb",
+      "color": "#ef4444",
+      "opacity": 1.0
+    },
+    {
+      "id": "graft_void",
+      "name": "SABG Graft Infill Void",
+      "file": "graft_void.glb",
+      "color": "#f59e0b",
+      "opacity": 0.9
+    }
+  ]
+}

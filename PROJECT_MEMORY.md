@@ -167,7 +167,77 @@ Create `.github/workflows/deploy.yml`:
   - Author attribution integration with direct email (`mailto:drameetr@gmail.com`), official high-contrast LinkedIn badge, and WhatsApp community button.
   - Packaged 7.5s high-density demonstration video with synthesized ambient instrumental soundtrack (`stomatognathic_physiology_demo.mp4`) optimized for LinkedIn feed engagement algorithms.
 
+## 8. Sister Application: Cleft Craniofacial Explorer (Case CL-01) & Surgical-Orthopedic Simulation Suite
+- **Interactive Application URL:** [http://localhost:5173/cleft.html](http://localhost:5173/cleft.html)
+- **Clinical Lead:** Professor Ameet Vaman Revankar (Senior Orthodontic Consultant AI-SOC Alliance Model).
+- **Patient Case CL-01:** Complete Unilateral Left Cleft Lip and Palate (UCLP).
+- **Core Clinical Simulations:**
+  1. **Beauchene Disarticulation & Berkowitz Muscular Force Vectors:**
+     - Dynamic separation of greater and lesser maxillae, zygoma, cranial vault, and mandible.
+     - 5 Aberrant Muscular Sling Vectors (cleft and non-cleft orbicularis oris, septopremaxillary vomerine vector, buccinator, and levator veli palatini).
+  2. **Secondary Alveolar Bone Grafting (SABG) Suite:**
+     - Resorption overpacking slider ($0\% \to 130\%$, $2.24\text{ cm}^3$ harvest target for $1.72\text{ cm}^3$ defect).
+     - Biological healing timeline scrubber (Day 0 to Month 12 cortical osteointegration).
+     - Flanking permanent canine (Tooth 23) eruption corridor with vertex morphing and Bergland Type I / Chelsea Category A outcome.
+  3. **Alt-RAMEC & Petit Reverse-Pull Facemask Biomechanical Simulator:**
+     - **Eric Liou Protocol:** 5-cycle alternating rapid expansion and constriction (+7mm / -7mm weekly) uncoupling circummaxillary sutures (pterygomaxillary, zygomaticomaxillary, zygomaticotemporal).
+     - **Custom CAD Modeling (Blender `bpy`):** Jackscrew expander (`alt_ramec.glb`) anchored to molar centroids on teeth 16, 14, 26, 24 with anterior extraoral hooks; Petit extraoral facemask (`facemask.glb`) with forehead pad, chin cup, and adjustable crossbar.
+     - **Dynamic Orthopedic Traction:** Gold latex elastic tubes delivering $450\text{ g}$ downward and forward $25^\circ$ pull, stretching in real time as the maxilla achieves $0.0 \to 4.5\text{ mm}$ skeletal Le Fort I advancement.
+     - Automated protraction loop with live A-point (+3.5 mm) and overjet (+2.5 mm) telemetry.
+
+---
+
+### 8.1 Session Milestone Refinements (2026-09-26)
+1. **Full Hyrax Appliance Rectification:**
+   - Corrected vertical depth collision (Z = -41.25 mm) to place the appliance cleanly into the oral palatal vault.
+   - Modeled 4 hollow anatomical band sleeves with soldered buccal auxiliary tubes and brackets on teeth 16, 14, 26, 24.
+   - Fabricated heavy 1.5 mm round stainless steel palatal connector framework and bilateral anterior vestibular extraoral traction hooks (1.8 mm retention spheres).
+   - Applied polished orthodontic surgical stainless steel PBR material (#e2e8f0, metalness 0.96, roughness 0.12).
+2. **Reverse-Pull Facemask Vertical Realignment:**
+   - Translated the Petit facemask downward by delta Z = -14.0 mm.
+   - Positioned chin cup at Z = -88.0 mm over the mandibular symphysis/menton, establishing >15 mm vertical clearance below the lower anterior incisors and eliminating tooth/alveolar overlap.
+   - Lowered crossbar to Z = -58.0 mm (mouth/lower lip level) to enforce the textbook 25.5 deg forward-and-downward protraction vector.
+3. **Viewport Ergonomics & Control Deck Layout:**
+   - Moved bottom HUD control decks (.altramec-dock, .sabg-dock, .disarticulation-dock) from center to bottom-left (left: 1.25rem), completely freeing the central and right 65% of the viewport canvas.
+   - Elevated .disarticulation-dock to bottom: 4.0rem (64 px from bottom edge) to eliminate clipping on laptop screens and scaled viewports. Companion docks set to bottom: 1.5rem.
+
+### 8.2 Session Milestone Refinements (2026-09-27)
+1. **HUD Elevation & Anti-Truncation Optimization:**
+   - Elevated `.altramec-dock` and `.sabg-dock` from `bottom: 1.5rem` to `bottom: 4.5rem` ($72\text{ px}$ from bottom edge).
+   - Elevated `.disarticulation-dock` from `bottom: 4.0rem` to `bottom: 6.5rem` ($104\text{ px}$ from bottom edge).
+   - Added `max-height: calc(100vh - 120px); overflow-y: auto;` to eliminate any possible truncation from taskbars, browser chrome, or display scaling.
+2. **Automated Lower Jaw & IAN Layer Hiding on Palatal Hyrax View:**
+   - Implemented bidirectional synchronization via `setSegmentVisibility(id, visible)` in [`src/cleft.js`](file:///d:/partof_BP3D_4.0_obj_99/src/cleft.js).
+   - When clicking `Palatal Hyrax ⊙` camera view (`dom.btnCamExpander`):
+     - Automatically turns off `Mandible & Ramus` (`'mandible'`), `Mandibular Dentition` (`'lower_teeth'`), and `Inferior Alveolar Nerve Canal` (`'mandibular_canal'`).
+     - Updates the "Layers & Parts" sidebar in real time: sets buttons to `─`, recalculates counter (`9 / 13 Active`), and grants an unobstructed occlusal inspection of the jackscrew and palatal framework.
+   - When switching to `Facemask Profile ☩` (`dom.btnCamFacemask`) or `Suture Buttress` (`dom.btnCamSutures`):
+     - Automatically restores mandibular anatomy and IAN canal to visible (`👁`), updating counter to `12 / 13 Active`.
+
+3. **Pre-Op Anatomy Stage Return & Full Lateral Profile Orientation:**
+   - When clicking `Pre-Op Anatomy` in the top stage switcher:
+     - Automatically restores `Mandible & Ramus` (`'mandible'`), `Mandibular Dentition` (`'lower_teeth'`), and `Inferior Alveolar Nerve Canal` (`'mandibular_canal'`) to visible (`👁`), ensuring the lower jaw is never left hidden after inspecting the Alt-RAMEC palatal expander.
+     - Automatically sets the 3D camera to the textbook Full Lateral (Profile) View (`target: [0, 25, -42], position: [-380, 25, -42]`), providing an unobstructed sagittal evaluation of the Class III craniofacial profile, maxillary retrusion, and mandibular symphysis.
+     - Restores cutaneous facial drape to 38% opacity so both soft tissue profile and underlying skeletal bases are visible.
+
+---
+
+## Session Milestone Summary (Saved at 2026-09-27 21:00 IST)
+- **Status:** All requested HUD elevations, automated occlusal jaw isolation, and Pre-Op Full Lateral View transitions fully implemented, verified via browser automation, and committed.
+- **Active URLs & Dev Server:**
+  - Cleft Craniofacial Explorer: [http://localhost:5173/cleft.html](http://localhost:5173/cleft.html)
+  - Vite Background Task: Active on port 5173
+- **Key Files Modified in Session:**
+  - `src/cleft.css`: Elevated `.disarticulation-dock` (to `bottom: 6.5rem`), `.altramec-dock` & `.sabg-dock` (to `bottom: 4.5rem`), added `max-height` anti-truncation scroll limits.
+  - `src/cleft.js`:
+    - `setSegmentVisibility(id, visible)` helper for bidirectional 3D mesh and DOM layer sidebar synchronization (`👁` vs `─`).
+    - `dom.btnCamExpander` (`Palatal Hyrax ⊙`): Automatically turns off `mandible`, `lower_teeth`, and `mandibular_canal`, reducing count to `9 / 13 Active`.
+    - `dom.btnCamFacemask` & `dom.btnCamSutures`: Restores mandibular structures.
+    - `setClinicalStage('pre_op')`: Restores mandibular structures, resets cutaneous drape to 38%, and orients camera to Full Lateral Profile (`target: [0, 25, -42], position: [-380, 25, -42]`).
+- **Next Session Resume Priorities:**
+  1. Continue patient Case CL-01 exploration (SABG graft simulation, Berkowitz aberrant muscle vectors, or Eric Liou Alt-RAMEC cycles).
+  2. Implement any additional clinical stages, interactive cephalometric landmarks, or export capabilities as directed by Professor Revankar.
+
 ---
 
 *For Professor Revankar's Clinical Validation.*
-

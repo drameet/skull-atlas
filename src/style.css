@@ -132,6 +132,13 @@ header {
   background: var(--gold-soft);
 }
 
+.btn-text-short {
+  display: none;
+}
+.btn-text-full {
+  display: inline;
+}
+
 /* Atlas Brand Typography Overlay */
 .atlas-brand {
   position: absolute;
@@ -1563,17 +1570,29 @@ dialog#snapshot-dialog::backdrop {
 @media (max-width: 768px) {
   /* Header Responsive Redesign */
   header {
-    height: 56px;
-    padding: 0 12px;
-    gap: 8px;
+    height: 52px;
+    padding: 0 8px;
+    gap: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+  }
+
+  header::-webkit-scrollbar {
+    display: none;
   }
 
   .header-left {
-    gap: 8px;
+    gap: 4px;
+    flex-shrink: 0;
   }
 
   #signature {
-    font-size: 14px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
     white-space: nowrap;
   }
 
@@ -1581,23 +1600,48 @@ dialog#snapshot-dialog::backdrop {
     display: none; /* Hide sub-edition text on mobile */
   }
 
+  .header-center {
+    flex-shrink: 0;
+  }
+
   .mode-switch {
     padding: 2px;
   }
 
   .mode-switch button {
-    font-size: 10px;
-    padding: 4px 10px;
+    font-size: 9.5px;
+    padding: 4px 7px;
+    white-space: nowrap;
   }
 
   .header-right {
-    gap: 6px;
+    gap: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
   }
 
   .header-right button {
     font-size: 10px;
-    padding: 6px 8px;
+    padding: 5px 8px;
     white-space: nowrap;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--line);
+    color: var(--ink);
+  }
+
+  .header-right button.active {
+    background: var(--gold-soft);
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .btn-text-full {
+    display: none !important;
+  }
+  .btn-text-short {
+    display: inline !important;
   }
 
   #notes-open {
@@ -1606,12 +1650,18 @@ dialog#snapshot-dialog::backdrop {
 
   /* Watermarks & Hero */
   .atlas-brand {
-    top: 66px;
-    left: 14px;
+    top: 58px;
+    left: 10px;
+    pointer-events: none;
+  }
+
+  .atlas-brand span {
+    font-size: 7px;
+    margin-bottom: 2px;
   }
 
   .atlas-brand h1 {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .atlas-brand p {
@@ -1619,29 +1669,22 @@ dialog#snapshot-dialog::backdrop {
   }
 
   .hero {
-    top: 110px;
-    left: 14px;
-    max-width: 220px;
+    display: none; /* Hide distracting hero watermark on mobile to keep 3D view clean */
   }
 
-  .hero h1 {
-    font-size: 17px;
-  }
-
-  .hero #subtitle,
-  .hero .small-stats {
-    display: none;
-  }
-
-  /* Center View Tools */
+  /* Center View Tools - positioned neatly below the brand watermark */
   .view-tools {
-    top: 10px;
+    top: auto;
+    bottom: 102px;
+    left: 50%;
+    transform: translateX(-50%);
     padding: 3px;
     gap: 3px;
-    max-width: calc(100vw - 24px);
+    max-width: calc(100vw - 16px);
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    z-index: 12;
   }
 
   .view-tools::-webkit-scrollbar {
@@ -1649,8 +1692,8 @@ dialog#snapshot-dialog::backdrop {
   }
 
   .view-tools button {
-    font-size: 9px;
-    padding: 5px 8px;
+    font-size: 8.5px;
+    padding: 4px 7px;
     white-space: nowrap;
   }
 

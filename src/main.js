@@ -195,6 +195,12 @@ async function initAtlas() {
       populateStructureTree();
       loadingEl.classList.add('fade-out');
       setTimeout(() => loadingEl.remove(), 500);
+
+      // On mobile screens (< 768px), start with tree panel collapsed so 3D skull is immediately visible
+      if (window.innerWidth < 768) {
+        if (treePanel) treePanel.hidden = true;
+        if (treeToggle) treeToggle.classList.remove('active');
+      }
     });
   } catch (err) {
     console.error('Failed to initialize atlas:', err);
@@ -496,6 +502,10 @@ resetBtn.addEventListener('click', () => {
 treeToggle.addEventListener('click', () => {
   treePanel.hidden = !treePanel.hidden;
   treeToggle.classList.toggle('active', !treePanel.hidden);
+  if (!treePanel.hidden && displayPanel) {
+    displayPanel.hidden = true;
+    displayToggle.classList.remove('active');
+  }
 });
 treeClose.addEventListener('click', () => {
   treePanel.hidden = true;
@@ -545,6 +555,10 @@ treeOpacity.addEventListener('input', (e) => {
 displayToggle.addEventListener('click', () => {
   displayPanel.hidden = !displayPanel.hidden;
   displayToggle.classList.toggle('active', !displayPanel.hidden);
+  if (!displayPanel.hidden && treePanel) {
+    treePanel.hidden = true;
+    treeToggle.classList.remove('active');
+  }
 });
 displayClose.addEventListener('click', () => {
   displayPanel.hidden = true;

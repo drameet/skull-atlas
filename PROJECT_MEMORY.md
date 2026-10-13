@@ -222,21 +222,40 @@ Create `.github/workflows/deploy.yml`:
 
 ---
 
-## Session Milestone Summary (Saved at 2026-09-27 21:00 IST)
-- **Status:** All requested HUD elevations, automated occlusal jaw isolation, and Pre-Op Full Lateral View transitions fully implemented, verified via browser automation, and committed.
+### 8.3 Session Milestone Refinements (2026-10-13): Mobile & Touch Optimization (iPhone 15 & Small Viewports)
+1. **Touch Gesture Isolation & Orbit Controls:**
+   - Single-finger drag configured for smooth spherical orbit (`TOUCH.ROTATE`).
+   - Two-finger pinch and drag configured for dolly zoom and pan (`TOUCH.DOLLY_PAN`).
+   - Added `touch-action: none` to the 3D WebGL canvas to eliminate unwanted native Safari scrolling and pull-to-refresh interference.
+   - Introduced a drag-detection threshold ($> 7\text{ px}$ or $> 500\text{ ms}$) in raycasting to ensure orbiting the skull never triggers false-positive bone selections.
+2. **Fixed Header & iOS Safe-Area Padding (`env(safe-area-inset-top)`):**
+   - Locked the header ribbon with `position: fixed; top: 0; left: 0; right: 0; z-index: 100` and `background: rgba(10, 14, 19, 0.96)`.
+   - Added `viewport-fit=cover` to `<meta name="viewport">` and integrated `env(safe-area-inset-top)` to prevent the top navigation bar from hiding beneath the Safari URL pill or Dynamic Island on iPhone 15.
+   - Truncated the brand title cleanly on compact screens and converted header button labels to responsive short spans (`Layers ☷` and `Display ◈`) to fit within $393\text{px}$ viewports with zero horizontal clipping.
+3. **Drawer Mutuality & Unobstructed 3D Stage on Mobile:**
+   - Configured `#tree-panel` to start collapsed by default on screens $< 768\text{px}$ so the 3D skull is immediately in view upon page load.
+   - Wired mutual drawer exclusion: opening `Layers ☷` closes `Display ◈`, and opening `Display ◈` closes `Layers ☷`.
+4. **Viewport Tool Ergonomics & Camera Angles Unblocking:**
+   - Relocated rendering mode pills (`Orbit`, `Wireframe`, `Ghost / X-Ray`, `Snapshot`) to the top right quadrant below the brand watermark.
+   - Dedicated the bottom toolbar exclusively to the 6 camera angle presets (`Perspective`, `Front`, `Side`, `Back`, `Superior`, `Base`), eliminating all previous overlapping pill collisions.
+   - Styled the `#detail` HUD card to slide up cleanly above the camera bar when individual bones (e.g. Sphenoid) are isolated.
+5. **Live Deployment:**
+   - Production bundle compiled with Vite and deployed live via GitHub Actions to [https://drameet.github.io/skull-atlas/](https://drameet.github.io/skull-atlas/).
+
+---
+
+## Session Milestone Summary (Saved at 2026-10-13 16:10 IST)
+- **Status:** Mobile and iPhone 15 responsive system, touch orbit gestures, safe-area headers, mutual drawer toggling, and camera angle toolbar ergonomics fully implemented, validated, and live in production.
 - **Active URLs & Dev Server:**
-  - Cleft Craniofacial Explorer: [http://localhost:5173/cleft.html](http://localhost:5173/cleft.html)
-  - Vite Background Task: Active on port 5173
+  - Live Production Atlas: [https://drameet.github.io/skull-atlas/](https://drameet.github.io/skull-atlas/)
+  - Local Dev Server: [http://localhost:5173/](http://localhost:5173/)
 - **Key Files Modified in Session:**
-  - `src/cleft.css`: Elevated `.disarticulation-dock` (to `bottom: 6.5rem`), `.altramec-dock` & `.sabg-dock` (to `bottom: 4.5rem`), added `max-height` anti-truncation scroll limits.
-  - `src/cleft.js`:
-    - `setSegmentVisibility(id, visible)` helper for bidirectional 3D mesh and DOM layer sidebar synchronization (`👁` vs `─`).
-    - `dom.btnCamExpander` (`Palatal Hyrax ⊙`): Automatically turns off `mandible`, `lower_teeth`, and `mandibular_canal`, reducing count to `9 / 13 Active`.
-    - `dom.btnCamFacemask` & `dom.btnCamSutures`: Restores mandibular structures.
-    - `setClinicalStage('pre_op')`: Restores mandibular structures, resets cutaneous drape to 38%, and orients camera to Full Lateral Profile (`target: [0, 25, -42], position: [-380, 25, -42]`).
+  - `src/main.js`: OrbitControls touch bindings, tap-vs-drag raycast thresholds, responsive camera FOV ($48^\circ$ mobile vs $36^\circ$ desktop), mutual drawer state management.
+  - `src/style.css`: Fixed header ribbon with iOS safe area top/bottom insets, mobile slide-up sheets for `#tree-panel` and `#display-panel`, top-right `.view-tools` placement, dedicated bottom `.angles` toolbar.
+  - `index.html`: `viewport-fit=cover` meta tag, responsive `.btn-text-full` / `.btn-text-short` spans on header buttons.
 - **Next Session Resume Priorities:**
-  1. Continue patient Case CL-01 exploration (SABG graft simulation, Berkowitz aberrant muscle vectors, or Eric Liou Alt-RAMEC cycles).
-  2. Implement any additional clinical stages, interactive cephalometric landmarks, or export capabilities as directed by Professor Revankar.
+  1. Continue expanding deep cranial feature labeling or interactive cephalometric plane slices.
+  2. Implement any additional clinical case studies or disarticulation animation presets as directed by Professor Revankar.
 
 ---
 

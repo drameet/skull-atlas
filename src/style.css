@@ -1568,21 +1568,32 @@ dialog#snapshot-dialog::backdrop {
 }
 
 @media (max-width: 768px) {
-  /* Header Responsive Redesign */
+  body {
+    height: 100vh;
+    height: 100dvh;
+    padding-top: calc(54px + env(safe-area-inset-top, 0px));
+  }
+
+  /* Header Fixed at Top with iOS Safe-Area support */
   header {
-    height: 52px;
-    padding: 0 8px;
-    gap: 4px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: calc(54px + env(safe-area-inset-top, 0px));
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 4px;
+    gap: 6px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-  }
-
-  header::-webkit-scrollbar {
-    display: none;
+    background: rgba(14, 18, 23, 0.95);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 100;
   }
 
   .header-left {
@@ -1615,20 +1626,21 @@ dialog#snapshot-dialog::backdrop {
   }
 
   .header-right {
-    gap: 4px;
+    gap: 5px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
   }
 
   .header-right button {
-    font-size: 10px;
-    padding: 5px 8px;
+    font-size: 10.5px;
+    padding: 6px 9px;
     white-space: nowrap;
     border-radius: var(--radius-sm);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--line-strong);
     color: var(--ink);
+    font-weight: 500;
   }
 
   .header-right button.active {
@@ -1650,18 +1662,19 @@ dialog#snapshot-dialog::backdrop {
 
   /* Watermarks & Hero */
   .atlas-brand {
-    top: 58px;
-    left: 10px;
+    top: calc(64px + env(safe-area-inset-top, 0px));
+    left: 14px;
     pointer-events: none;
+    z-index: 5;
   }
 
   .atlas-brand span {
-    font-size: 7px;
+    font-size: 7.5px;
     margin-bottom: 2px;
   }
 
   .atlas-brand h1 {
-    font-size: 16px;
+    font-size: 17px;
   }
 
   .atlas-brand p {
@@ -1770,8 +1783,12 @@ dialog#snapshot-dialog::backdrop {
 
   /* Footer & Explosion Slider */
   footer {
-    height: 90px;
-    padding: 8px 14px 10px 14px;
+    height: auto;
+    min-height: calc(88px + env(safe-area-inset-bottom, 0px));
+    padding: 8px 14px calc(10px + env(safe-area-inset-bottom, 0px)) 14px;
+    background: rgba(14, 18, 23, 0.96);
+    border-top: 1px solid var(--line);
+    z-index: 50;
   }
 
   .timeline-top {

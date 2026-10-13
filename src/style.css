@@ -1571,7 +1571,7 @@ dialog#snapshot-dialog::backdrop {
   body {
     height: 100vh;
     height: 100dvh;
-    padding-top: calc(54px + env(safe-area-inset-top, 0px));
+    padding-top: calc(56px + env(safe-area-inset-top, 0px));
   }
 
   /* Header Fixed at Top with iOS Safe-Area support */
@@ -1580,31 +1580,35 @@ dialog#snapshot-dialog::backdrop {
     top: 0;
     left: 0;
     right: 0;
-    height: calc(54px + env(safe-area-inset-top, 0px));
+    height: calc(56px + env(safe-area-inset-top, 0px));
     padding-top: env(safe-area-inset-top, 0px);
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
     padding-bottom: 4px;
-    gap: 6px;
+    gap: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(14, 18, 23, 0.95);
-    border-bottom: 1px solid var(--line);
+    background: rgba(10, 14, 19, 0.96);
+    border-bottom: 1px solid var(--line-strong);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     z-index: 100;
+    box-sizing: border-box;
   }
 
   .header-left {
-    gap: 4px;
-    flex-shrink: 0;
+    gap: 0;
+    flex-shrink: 1;
+    min-width: 0;
   }
 
   #signature {
     font-size: 13px;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .edition {
@@ -1620,21 +1624,21 @@ dialog#snapshot-dialog::backdrop {
   }
 
   .mode-switch button {
-    font-size: 9.5px;
-    padding: 4px 7px;
+    font-size: 9px;
+    padding: 4px 6px;
     white-space: nowrap;
   }
 
   .header-right {
-    gap: 5px;
+    gap: 4px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
   }
 
   .header-right button {
-    font-size: 10.5px;
-    padding: 6px 9px;
+    font-size: 10px;
+    padding: 5px 7px;
     white-space: nowrap;
     border-radius: var(--radius-sm);
     background: rgba(255, 255, 255, 0.08);
@@ -1662,19 +1666,19 @@ dialog#snapshot-dialog::backdrop {
 
   /* Watermarks & Hero */
   .atlas-brand {
-    top: calc(64px + env(safe-area-inset-top, 0px));
-    left: 14px;
+    top: calc(66px + env(safe-area-inset-top, 0px));
+    left: 12px;
     pointer-events: none;
     z-index: 5;
   }
 
   .atlas-brand span {
-    font-size: 7.5px;
+    font-size: 7px;
     margin-bottom: 2px;
   }
 
   .atlas-brand h1 {
-    font-size: 17px;
+    font-size: 15px;
   }
 
   .atlas-brand p {
@@ -1685,19 +1689,21 @@ dialog#snapshot-dialog::backdrop {
     display: none; /* Hide distracting hero watermark on mobile to keep 3D view clean */
   }
 
-  /* Center View Tools - positioned neatly below the brand watermark */
+  /* View Tools (Orbit, Wireframe, Ghost, Snapshot) placed neatly at top right below brand */
   .view-tools {
-    top: auto;
-    bottom: 102px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 3px;
+    top: calc(66px + env(safe-area-inset-top, 0px));
+    bottom: auto;
+    right: 10px;
+    left: auto;
+    transform: none;
+    padding: 2px 4px;
     gap: 3px;
-    max-width: calc(100vw - 16px);
+    max-width: 58vw;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     z-index: 12;
+    background: rgba(14, 18, 23, 0.88);
   }
 
   .view-tools::-webkit-scrollbar {
@@ -1705,62 +1711,70 @@ dialog#snapshot-dialog::backdrop {
   }
 
   .view-tools button {
-    font-size: 8.5px;
-    padding: 4px 7px;
+    font-size: 8px;
+    padding: 4px 6px;
     white-space: nowrap;
   }
 
-  /* Panels (Tree, Display, Detail) -> Full/Half Slide-up Sheet */
+  /* Panels (Tree, Display) -> Full Slide-up Sheets */
   #tree-panel {
     top: auto;
-    left: 8px;
-    right: 8px;
-    bottom: 96px;
+    left: 6px;
+    right: 6px;
+    bottom: calc(90px + env(safe-area-inset-bottom, 0px));
     width: auto;
-    max-height: 60vh;
+    max-height: 62vh;
     padding: 14px;
-    z-index: 25;
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.7);
+    z-index: 35;
+    box-shadow: 0 -12px 36px rgba(0, 0, 0, 0.85);
   }
 
   #display-panel {
     top: auto;
-    left: 8px;
-    right: 8px;
-    bottom: 96px;
+    left: 6px;
+    right: 6px;
+    bottom: calc(90px + env(safe-area-inset-bottom, 0px));
     width: auto;
-    max-height: 60vh;
+    max-height: 62vh;
     padding: 16px;
-    z-index: 25;
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.7);
+    z-index: 35;
+    box-shadow: 0 -12px 36px rgba(0, 0, 0, 0.85);
     overflow-y: auto;
   }
 
+  /* Bone / Tooth Detail Card -> Slides up cleanly without blocking tools */
   #detail {
     left: 8px;
     right: 8px;
-    bottom: 96px;
+    bottom: calc(92px + env(safe-area-inset-bottom, 0px));
     width: auto;
-    max-height: 50vh;
-    padding: 16px;
-    z-index: 24;
+    max-height: 48vh;
+    padding: 14px 16px;
+    z-index: 30;
+    box-shadow: 0 -10px 32px rgba(0, 0, 0, 0.8);
   }
 
-  /* Bottom Tools (Camera Angles & Search) */
+  /* Bottom Tools (Camera Angles: Perspective, Front, Side, Back, Superior, Base) */
   .bottom-tools {
-    bottom: 98px;
-    left: 10px;
-    right: 10px;
-    flex-direction: column-reverse;
-    align-items: stretch;
-    gap: 8px;
+    bottom: calc(94px + env(safe-area-inset-bottom, 0px));
+    left: 8px;
+    right: 8px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 15;
+    pointer-events: auto;
   }
 
   .angles {
     overflow-x: auto;
-    padding: 3px;
+    padding: 3px 6px;
+    gap: 3px;
     scrollbar-width: none;
-    justify-content: center;
+    justify-content: flex-start;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    background: rgba(14, 18, 23, 0.88);
   }
 
   .angles::-webkit-scrollbar {
@@ -1768,9 +1782,10 @@ dialog#snapshot-dialog::backdrop {
   }
 
   .angles button {
-    font-size: 9px;
-    padding: 5px 8px;
+    font-size: 8.5px;
+    padding: 4px 7px;
     white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .search {
